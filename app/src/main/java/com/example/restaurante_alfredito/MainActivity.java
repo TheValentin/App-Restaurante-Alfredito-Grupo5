@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     public void procesar(View v){
         Intent intent = new Intent(this, antivity_iniciar1.class);
         startActivity(intent);
+        //aaaa
 
     }
 }
