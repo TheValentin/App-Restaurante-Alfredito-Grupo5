@@ -15,4 +15,17 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="title_activity_administrador_menu">AdministradorMenuActivity</string>
     <string name="title_activity_motorizado">MotorizadoActivity</string>
+
+
+    <string name="nombre">Nombre Completo</string>
+    <string name="apellido">Apellido completo</string>
+    <string name="telefono">Telefono</string>
+    <string name="correo">Correo electronico</string>
+    <string name="Contraseña">Contraseña</string>
+    <string name="Direccion">Direccion de domicilio</string>
+    <string name="registro">Registrese</string>
+    <string name="Terminos">Terminos y Condiciones</string>
+    <string name="Datos_Personales">Datos Personales</string>
+
+
 </resources>

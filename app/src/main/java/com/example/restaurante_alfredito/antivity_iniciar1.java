@@ -27,7 +27,7 @@ public class antivity_iniciar1 extends AppCompatActivity {
         txtContraseña = (TextInputLayout) findViewById(R.id.txtContrasena);
     }
 
-    public void procesar(View v){
+    public void LoginIniciando(View v){
 
         String usuAdm="admin";
         String usuMoto="moto";
