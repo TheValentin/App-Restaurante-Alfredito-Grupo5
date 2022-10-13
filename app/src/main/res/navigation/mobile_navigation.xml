@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_inicio_cliente">
+
+    <fragment
+        android:id="@+id/nav_inicio_cliente"
+        android:name="com.example.restaurante_alfredito.Actividades.uiCliente.inicio_cliente.Inicio_clienteFragment"
+        android:label="inicio"
+        tools:layout="@layout/fragment_inicio_cliente" />
+
+    <fragment
+        android:id="@+id/nav_lista_comidas"
+        android:name="com.example.restaurante_alfredito.Actividades.uiCliente.lista_de_comidas.Lista_de_comidasFragment"
+        android:label="Lista de comidas"
+        tools:layout="@layout/fragment_lista_de_comidas" />
+
+    <fragment
+        android:id="@+id/nav_Carrito"
+        android:name="com.example.restaurante_alfredito.Actividades.uiCliente.carrito.CarritoFragment"
+        android:label="Carrito"
+        tools:layout="@layout/fragment_carrito" />
+</navigation>
