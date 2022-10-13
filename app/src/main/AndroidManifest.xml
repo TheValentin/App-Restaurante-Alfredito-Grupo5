@@ -3,6 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.restaurante_alfredito">
 
+    <!-- Always include this permission -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <!-- Include only if your app benefits from precise location access. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!-- Required only when requesting background location access on
+      Android 10 (API level 29) and higher. -->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,11 +23,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Restaurantealfredito"
         tools:targetApi="31">
+
+        <!--
+             TODO: Before you run your application, you need a Google Maps API key.
+
+             To get one, follow the directions here:
+
+                https://developers.google.com/maps/documentation/android-sdk/get-api-key
+
+             Once you have your API key (it starts with "AIza"), define a new property in your
+             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
+             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDqSqTa1EVXo_jyQgmkGm82cOYlb2A8i_U" />
+
+        <activity
+            android:name=".actiivty_Google_Map"
+            android:exported="false"
+            android:label="@string/title_activity_actiivty_google_map" />
         <activity
             android:name=".activity_registro_usuario"
             android:exported="false" />
-
-
         <activity
             android:name=".antivity_iniciar1"
             android:exported="false" />
@@ -34,17 +62,17 @@
             android:name=".Actividades.MotorizadoMenuActivity"
             android:exported="false"
             android:label="@string/title_activity_motorizado"
-            android:theme="@style/Theme.Restaurantealfredito.NoActionBar"></activity>
+            android:theme="@style/Theme.Restaurantealfredito.NoActionBar" />
         <activity
             android:name=".Actividades.AdministradorMenuActivity"
             android:exported="false"
             android:label="@string/title_activity_administrador_menu"
-            android:theme="@style/Theme.Restaurantealfredito.NoActionBar"></activity>
+            android:theme="@style/Theme.Restaurantealfredito.NoActionBar" />
         <activity
             android:name=".Actividades.ClienteMenuActivity"
             android:exported="false"
             android:label="@string/title_activity_cliente_menu"
-            android:theme="@style/Theme.Restaurantealfredito.NoActionBar"></activity>
+            android:theme="@style/Theme.Restaurantealfredito.NoActionBar" />
     </application>
 
 </manifest>

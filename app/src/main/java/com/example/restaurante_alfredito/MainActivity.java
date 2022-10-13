@@ -30,4 +30,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, activity_registro_usuario.class);
         startActivity(intent);
     }
+    public void procesoMap(View v){
+        Intent intent = new Intent(this, actiivty_Google_Map.class);
+        startActivity(intent);
+    }
 }

@@ -26,6 +26,7 @@
     <string name="registro">Registrese</string>
     <string name="Terminos">Terminos y Condiciones</string>
     <string name="Datos_Personales">Datos Personales</string>
+    <string name="title_activity_actiivty_google_map">actiivty_Google_Map</string>
 
 
 </resources>
