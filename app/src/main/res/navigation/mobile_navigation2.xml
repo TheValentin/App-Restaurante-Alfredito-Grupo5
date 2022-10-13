@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation2"
+    app:startDestination="@+id/nav_inicio_administrador">
+
+    <fragment
+        android:id="@+id/nav_inicio_administrador"
+        android:name="com.example.restaurante_alfredito.Actividades.uiAdministrador.inicio_administrador.Inicio_administradorFragment"
+        android:label="inicio"
+        tools:layout="@layout/fragment_inicio_administrador" />
+
+    <fragment
+        android:id="@+id/nav_persistencia_empleados"
+        android:name="com.example.restaurante_alfredito.Actividades.uiAdministrador.Persistencia_empleados.persistencia_empleadosFragment"
+        android:label="Empleados"
+        tools:layout="@layout/fragment_persistencia_empleados" />
+
+    <fragment
+        android:id="@+id/nav_persistencia_productos"
+        android:name="com.example.restaurante_alfredito.Actividades.uiAdministrador.Persistencia_productos.persistencia_productosFragment"
+        android:label="Productos"
+        tools:layout="@layout/fragment_persistencia_productos" />
+</navigation>
