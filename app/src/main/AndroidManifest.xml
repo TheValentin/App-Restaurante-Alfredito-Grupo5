@@ -13,18 +13,46 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Restaurantealfredito"
         tools:targetApi="31" >
+
         <activity
             android:name=".antivity_iniciar1"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" >
+            android:exported="false" >
+
+        </activity>
+
+        <activity
+            android:name=".Actividades.MotorizadoMenuActivity"
+            android:exported="false"
+            android:label="@string/title_activity_motorizado"
+            android:theme="@style/Theme.Restaurantealfredito.NoActionBar"
+            >
+
+        </activity>
+        <activity
+            android:name=".Actividades.AdministradorMenuActivity"
+            android:exported="false"
+            android:label="@string/title_activity_administrador_menu"
+            android:theme="@style/Theme.Restaurantealfredito.NoActionBar">
+
+
+        </activity>
+        <activity
+            android:name=".Actividades.ClienteMenuActivity"
+            android:exported="true"
+            android:label="@string/title_activity_cliente_menu"
+            android:theme="@style/Theme.Restaurantealfredito.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
+
     </application>
 
 </manifest>
