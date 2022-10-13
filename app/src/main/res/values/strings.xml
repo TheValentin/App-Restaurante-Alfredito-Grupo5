@@ -17,6 +17,7 @@
     <string name="title_activity_motorizado">MotorizadoActivity</string>
 
 
+
     <string name="nombre">Nombre Completo</string>
     <string name="apellido">Apellido completo</string>
     <string name="telefono">Telefono</string>
@@ -27,6 +28,11 @@
     <string name="Terminos">Terminos y Condiciones</string>
     <string name="Datos_Personales">Datos Personales</string>
     <string name="title_activity_actiivty_google_map">actiivty_Google_Map</string>
+
+    <string name="google_key">AIzaSyDqSqTa1EVXo_jyQgmkGm82cOYlb2A8i_U</string>
+
+
+
 
 
 </resources>
