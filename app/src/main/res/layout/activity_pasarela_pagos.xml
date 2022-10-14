@@ -10,8 +10,11 @@
     <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Selecciona forma de pago" />
+        android:layout_height="54dp"
+        android:background="#1E00BCD4"
+        android:gravity="center"
+        android:text="Selecciona forma de pago"
+        android:textSize="20sp" />
 
     <RadioGroup
         android:layout_width="match_parent"
@@ -40,6 +43,6 @@
         android:id="@+id/btnSeleccionar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Siguiente" />
+        android:text="Seleccionar" />
 
 </LinearLayout>
