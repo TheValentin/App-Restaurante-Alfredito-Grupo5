@@ -1,10 +1,13 @@
 package com.example.restaurante_alfredito.Actividades;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Button;
 
 
+import com.example.restaurante_alfredito.PasarelaPagos;
 import com.example.restaurante_alfredito.R;
 import com.example.restaurante_alfredito.databinding.ActivityClienteMenuBinding;
 import com.google.android.material.snackbar.Snackbar;
@@ -23,10 +26,12 @@ public class ClienteMenuActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityClienteMenuBinding binding;
+    private Button BtnPasarela;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        enlazarControles();
 
         binding = ActivityClienteMenuBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -51,6 +56,15 @@ public class ClienteMenuActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
     }
+
+    private void enlazarControles(){
+        BtnPasarela=(Button) findViewById(R.id.BtnPasarela);
+    }
+    public void pasarelaPagos(View v){
+        Intent intent= new Intent(this, PasarelaPagos.class);
+        startActivity(intent);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
