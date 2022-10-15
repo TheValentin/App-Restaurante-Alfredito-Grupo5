@@ -21,6 +21,13 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_cliente_menu"
-        app:menu="@menu/activity_cliente_menu_drawer" />
+        app:menu="@menu/activity_cliente_menu_drawer" >
+
+        <Button
+            android:id="@+id/BtnPasarela"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pasarela" />
+    </com.google.android.material.navigation.NavigationView>
 
 </androidx.drawerlayout.widget.DrawerLayout>
