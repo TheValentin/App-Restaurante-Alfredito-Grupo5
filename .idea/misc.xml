@@ -79,26 +79,15 @@
         <entry key="..\:/Users/clinton/Documents/GitHub/App-Restaurante-Alfredito-Grupo5/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.1955" />
         <entry key="..\:/Users/clinton/Documents/GitHub/App-Restaurante-Alfredito-Grupo5/app/src/main/res/drawable/ic_baseline_map_24.xml" value="0.1955" />
         <entry key="..\:/Users/clinton/Documents/GitHub/App-Restaurante-Alfredito-Grupo5/app/src/main/res/layout/activity_antivity_iniciar1.xml" value="0.1875" />
-        <entry key="..\:/Users/clinton/Documents/GitHub/App-Restaurante-Alfredito-Grupo5/app/src/main/res/layout/activity_cliente_menu.xml" value="0.25" />
         <entry key="..\:/Users/clinton/Documents/GitHub/App-Restaurante-Alfredito-Grupo5/app/src/main/res/layout/activity_main.xml" value="0.1875" />
         <entry key="..\:/Users/clinton/Documents/GitHub/App-Restaurante-Alfredito-Grupo5/app/src/main/res/layout/activity_motorizado.xml" value="0.1875" />
-        <entry key="..\:/Users/clinton/Documents/GitHub/App-Restaurante-Alfredito-Grupo5/app/src/main/res/layout/activity_ppbilletera.xml" value="0.18125" />
-        <entry key="..\:/Users/clinton/Documents/GitHub/App-Restaurante-Alfredito-Grupo5/app/src/main/res/layout/activity_ppefectivo.xml" value="0.18125" />
-        <entry key="..\:/Users/clinton/Documents/GitHub/App-Restaurante-Alfredito-Grupo5/app/src/main/res/layout/activity_pptarjeta.xml" value="0.18125" />
-        <entry key="..\:/Users/clinton/Documents/GitHub/App-Restaurante-Alfredito-Grupo5/app/src/main/res/layout/activity_registro_usuario.xml" value="0.18125" />
         <entry key="..\:/Users/clinton/Documents/GitHub/App-Restaurante-Alfredito-Grupo5/app/src/main/res/layout/app_bar_administrador_menu.xml" value="0.1875" />
         <entry key="..\:/Users/clinton/Documents/GitHub/App-Restaurante-Alfredito-Grupo5/app/src/main/res/layout/app_bar_motorizado.xml" value="0.1875" />
         <entry key="..\:/Users/clinton/Documents/GitHub/App-Restaurante-Alfredito-Grupo5/app/src/main/res/layout/filas2.xml" value="0.33" />
         <entry key="..\:/Users/clinton/Documents/GitHub/App-Restaurante-Alfredito-Grupo5/app/src/main/res/layout/fragment_carrito.xml" value="0.1875" />
-        <entry key="..\:/Users/clinton/Documents/GitHub/App-Restaurante-Alfredito-Grupo5/app/src/main/res/layout/fragment_inicio_administrador.xml" value="0.24895833333333334" />
-        <entry key="..\:/Users/clinton/Documents/GitHub/App-Restaurante-Alfredito-Grupo5/app/src/main/res/layout/fragment_lista_de_comidas.xml" value="0.24895833333333334" />
-        <entry key="..\:/Users/clinton/Documents/GitHub/App-Restaurante-Alfredito-Grupo5/app/src/main/res/layout/fragment_persistencia_productos.xml" value="0.24895833333333334" />
-        <entry key="..\:/Users/clinton/Documents/GitHub/App-Restaurante-Alfredito-Grupo5/app/src/main/res/layout/nav_header_administrador_menu.xml" value="0.25" />
         <entry key="..\:/Users/clinton/Documents/GitHub/App-Restaurante-Alfredito-Grupo5/app/src/main/res/menu/activity_administrador_menu_drawer.xml" value="0.33" />
         <entry key="..\:/Users/clinton/Documents/GitHub/App-Restaurante-Alfredito-Grupo5/app/src/main/res/menu/activity_cliente_menu_drawer.xml" value="0.67" />
         <entry key="..\:/Users/clinton/Documents/GitHub/App-Restaurante-Alfredito-Grupo5/app/src/main/res/menu/activity_motorizado_menu_drawer.xml" value="0.1875" />
-        <entry key="..\:/Users/clinton/Documents/GitHub/App-Restaurante-Alfredito-Grupo5/app/src/main/res/menu/administrador_menu.xml" value="0.25" />
-        <entry key="..\:/Users/clinton/Documents/GitHub/App-Restaurante-Alfredito-Grupo5/app/src/main/res/menu/cliente_menu.xml" value="0.25" />
         <entry key="..\:/Users/clinton/Documents/GitHub/App-Restaurante-Alfredito-Grupo5/app/src/main/res/menu/motorizado.xml" value="0.1875" />
       </map>
     </option>
