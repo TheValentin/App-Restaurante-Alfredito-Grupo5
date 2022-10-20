@@ -1,5 +1,6 @@
 package com.example.restaurante_alfredito.Actividades;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.view.Menu;
 
 
 import com.example.restaurante_alfredito.R;
+import com.example.restaurante_alfredito.antivity_iniciar1;
 import com.example.restaurante_alfredito.databinding.ActivityAdministradorMenuBinding;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -77,12 +79,10 @@ public class AdministradorMenuActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.cerrar_sesion_administrador:
-                /*
-                Intent siguiente4 = new Intent(Actividad_drawer.this, MainActivity2.class);
+               ///
+                Intent siguiente4 = new Intent(AdministradorMenuActivity.this, antivity_iniciar1.class);
                 startActivity(siguiente4);
                 break;
-
-                 */
 
         }
 
