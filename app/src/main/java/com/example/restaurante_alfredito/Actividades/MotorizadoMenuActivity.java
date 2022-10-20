@@ -1,19 +1,15 @@
 package com.example.restaurante_alfredito.Actividades;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 
 
 import com.example.restaurante_alfredito.R;
-import com.example.restaurante_alfredito.antivity_iniciar1;
 import com.example.restaurante_alfredito.databinding.ActivityMotorizadoBinding;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
-import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -61,21 +57,6 @@ public class MotorizadoMenuActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.motorizado, menu);
         return true;
-    }
-
-    //metodo para cerrar sesion
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.cerrar_sesion_motorizado:
-                ///
-                Intent siguiente6 = new Intent(MotorizadoMenuActivity.this, antivity_iniciar1.class);
-                startActivity(siguiente6);
-                break;
-
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     @Override

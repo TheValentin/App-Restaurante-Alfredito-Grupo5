@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/cerrar_sesion_motorizado"
+        android:id="@+id/cerrar_sesion_administrador"
 
         android:orderInCategory="100"
         android:title="@string/action_settings"
