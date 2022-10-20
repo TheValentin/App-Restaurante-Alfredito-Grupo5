@@ -10,6 +10,8 @@ import com.example.restaurante_alfredito.Actividades.AdministradorMenuActivity;
 import com.example.restaurante_alfredito.Actividades.ClienteMenuActivity;
 import com.example.restaurante_alfredito.Actividades.MotorizadoMenuActivity;
 import com.google.android.material.textfield.TextInputLayout;
+import cn.pedant.SweetAlert.SweetAlertDialog;
+import android.graphics.Color;
 
 public class antivity_iniciar1 extends AppCompatActivity {
 
@@ -37,15 +39,43 @@ public class antivity_iniciar1 extends AppCompatActivity {
         if( txtUsuario.getEditText().getText().toString().equals(usuAdm) && txtContraseña.getEditText().getText().toString().equals(Contraseña) ){
             Intent intent = new Intent(this, AdministradorMenuActivity.class);
             startActivity(intent);
+
+
+            new SweetAlertDialog(this,SweetAlertDialog.SUCCESS_TYPE)
+                    .setTitleText("Bienvenido Administrador")
+                    .show();
+
         }
         else  if( txtUsuario.getEditText().getText().toString().equals(usuMoto) && txtContraseña.getEditText().getText().toString().equals(Contraseña) ){
             Intent intent = new Intent(this, MotorizadoMenuActivity.class);
             startActivity(intent);
+
+            new SweetAlertDialog(this,SweetAlertDialog.SUCCESS_TYPE)
+                    .setTitleText("Bienvenido Motorizado")
+                    .show();
+
         }
         else  if( txtUsuario.getEditText().getText().toString().equals(usuClien) && txtContraseña.getEditText().getText().toString().equals(Contraseña) ){
             Intent intent = new Intent(this, ClienteMenuActivity.class);
             startActivity(intent);
+
+            new SweetAlertDialog(this,SweetAlertDialog.SUCCESS_TYPE)
+                    .setTitleText("Bienvenido Cliente")
+                    .show();
         }
+        else  if( txtUsuario.getEditText().getText().toString().equals("") || txtContraseña.getEditText().getText().toString().equals("") ){
+
+
+            new SweetAlertDialog(this,SweetAlertDialog.ERROR_TYPE)
+                    .setTitleText("Complete el campo usuario o contraseña")
+                    .show();
+        } else {
+
+            new SweetAlertDialog(this,SweetAlertDialog.ERROR_TYPE)
+                    .setTitleText("Credenciales incorrectos")
+                    .show();
+        }
+
 
     }
 }

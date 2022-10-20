@@ -2,6 +2,7 @@ package com.example.restaurante_alfredito.Actividades;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.Button;
@@ -9,10 +10,12 @@ import android.widget.Button;
 
 import com.example.restaurante_alfredito.PasarelaPagos;
 import com.example.restaurante_alfredito.R;
+import com.example.restaurante_alfredito.antivity_iniciar1;
 import com.example.restaurante_alfredito.databinding.ActivityClienteMenuBinding;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -73,6 +76,21 @@ public class ClienteMenuActivity extends AppCompatActivity {
         return true;
     }
 
+
+    //metodo para cerrar sesion
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.cerrar_sesion_cliente:
+                ///
+                Intent siguiente5 = new Intent(ClienteMenuActivity.this, antivity_iniciar1.class);
+                startActivity(siguiente5);
+                break;
+
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_cliente_menu);
