@@ -12,12 +12,12 @@
         android:id="@+id/imagen"
         android:layout_width="151dp"
         android:layout_height="129dp"
-        android:layout_below="@+id/txtnombre"
+        android:layout_below="@+id/txtfecha"
         android:layout_marginTop="-6dp"
         android:src="@color/black" />
 
     <TextView
-        android:id="@+id/txtnombre"
+        android:id="@+id/txtfecha"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:shadowColor="@color/black"

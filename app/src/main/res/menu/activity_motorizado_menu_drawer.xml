@@ -6,15 +6,15 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_inicio_motorizado"
-            android:icon="@drawable/ic_baseline_home_24"
-            android:title="Inicio" />
+            android:icon="@drawable/ic_baseline_account_circle_24"
+            android:title="Datos Personales" />
         <item
             android:id="@+id/nav_lista_pedidos"
             android:icon="@drawable/ic_baseline_shopping_basket_24"
             android:title="Pedidos" />
         <item
             android:id="@+id/nav_mapa_de_entrega"
-            android:icon="@drawable/ic_baseline_map_24"
-            android:title="Mapa" />
+            android:icon="?android:attr/actionModeFindDrawable"
+            android:title="Historial Pedidos" />
     </group>
 </menu>

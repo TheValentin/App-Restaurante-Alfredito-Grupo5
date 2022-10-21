@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Actividades.uiMotorizado.Lista_de_pedidos.lista_de_pedidosFragment">
+    tools:context=".Actividades.uiMotorizado.Historial_de_pedidos.historial_de_pedidos">
 
     <ListView
-        android:id="@+id/listapedidos"
+        android:id="@+id/listahistorial"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

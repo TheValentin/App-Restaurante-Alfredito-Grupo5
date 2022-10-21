@@ -13,12 +13,12 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
-public class AdapterCatalago extends ArrayAdapter<Productos> {
+public class AdapterPedidos extends ArrayAdapter<Pedidos> {
 
 private Context mContext;
 private int mResourse;
 
-    public AdapterCatalago(@NonNull Context context, int resource, @NonNull ArrayList<Productos> objects) {
+    public AdapterPedidos(@NonNull Context context, int resource, @NonNull ArrayList<Pedidos> objects) {
         super(context, resource, objects);
         this.mContext=context;
         this.mResourse=resource;
@@ -34,13 +34,15 @@ private int mResourse;
         convertView=layoutInflater.inflate(mResourse,parent,false);
 
 
-        ImageView imageView=  ( ImageView)convertView.findViewById(R.id.imagen);
-        TextView txtnombr = (TextView )  convertView.findViewById(R.id.txtfecha);
-        TextView descrp =  (TextView ) convertView.findViewById(R.id.descripcion);
+        TextView txtfecha = (TextView )  convertView.findViewById(R.id.txtfecha);
+        TextView txtcodigo =  (TextView ) convertView.findViewById(R.id.txtcodigo);
+        TextView txtestado =  (TextView ) convertView.findViewById(R.id.txtestado);
+        TextView txtcliente =  (TextView ) convertView.findViewById(R.id.txtcliente);
 
-        imageView.setImageResource(getItem(position).getImagen());
-        txtnombr.setText(getItem(position).getNombre());
-        descrp.setText(getItem(position).getDescrip());
+        txtfecha.setText(getItem(position).getFecha());
+        txtcodigo.setText(getItem(position).getCodigo());
+        txtestado.setText(getItem(position).getEstado());
+        txtcliente.setText(getItem(position).getCliente());
 
 
         return convertView;

@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/nav_mapa_de_entrega"
-        android:name="com.example.restaurante_alfredito.Actividades.uiMotorizado.Mapa.mapaFragment"
+        android:name="com.example.restaurante_alfredito.Actividades.uiMotorizado.Historial_de_pedidos.historial_de_pedidos"
         android:label="Mapa_de_entrega"
-        tools:layout="@layout/fragment_mapa_de_entrega" />
+        tools:layout="@layout/fragment_historial_de_pedidos" />
 </navigation>

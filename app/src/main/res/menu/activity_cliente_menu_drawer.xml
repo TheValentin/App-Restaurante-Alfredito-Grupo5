@@ -6,8 +6,8 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_inicio_cliente"
-            android:icon="@drawable/ic_baseline_home_24"
-            android:title="Inicio" />
+            android:icon="@drawable/ic_baseline_account_circle_24"
+            android:title="Datos Personales" />
         <item
             android:id="@+id/nav_lista_comidas"
             android:icon="@drawable/ic_baseline_article_24"
