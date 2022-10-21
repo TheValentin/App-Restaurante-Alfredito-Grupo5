@@ -37,31 +37,36 @@ public class antivity_iniciar1 extends AppCompatActivity {
         String Contraseña="123";
 
         if( txtUsuario.getEditText().getText().toString().equals(usuAdm) && txtContraseña.getEditText().getText().toString().equals(Contraseña) ){
-            Intent intent = new Intent(this, AdministradorMenuActivity.class);
-            startActivity(intent);
+
 
 
             new SweetAlertDialog(this,SweetAlertDialog.SUCCESS_TYPE)
                     .setTitleText("Bienvenido Administrador")
                     .show();
 
+            Intent intent = new Intent(this, AdministradorMenuActivity.class);
+            startActivity(intent);
+
         }
         else  if( txtUsuario.getEditText().getText().toString().equals(usuMoto) && txtContraseña.getEditText().getText().toString().equals(Contraseña) ){
-            Intent intent = new Intent(this, MotorizadoMenuActivity.class);
-            startActivity(intent);
+
 
             new SweetAlertDialog(this,SweetAlertDialog.SUCCESS_TYPE)
                     .setTitleText("Bienvenido Motorizado")
                     .show();
 
+            Intent intent = new Intent(this, MotorizadoMenuActivity.class);
+            startActivity(intent);
+
         }
         else  if( txtUsuario.getEditText().getText().toString().equals(usuClien) && txtContraseña.getEditText().getText().toString().equals(Contraseña) ){
-            Intent intent = new Intent(this, ClienteMenuActivity.class);
-            startActivity(intent);
+
 
             new SweetAlertDialog(this,SweetAlertDialog.SUCCESS_TYPE)
                     .setTitleText("Bienvenido Cliente")
                     .show();
+            Intent intent = new Intent(this, ClienteMenuActivity.class);
+            startActivity(intent);
         }
         else  if( txtUsuario.getEditText().getText().toString().equals("") || txtContraseña.getEditText().getText().toString().equals("") ){
 

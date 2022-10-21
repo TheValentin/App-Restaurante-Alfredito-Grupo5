@@ -29,12 +29,12 @@ public class ClienteMenuActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityClienteMenuBinding binding;
-    private Button BtnPasarela;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        enlazarControles();
+
 
         binding = ActivityClienteMenuBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -58,14 +58,6 @@ public class ClienteMenuActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_cliente_menu);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-    }
-
-    private void enlazarControles(){
-        BtnPasarela=(Button) findViewById(R.id.BtnPasarela);
-    }
-    public void pasarelaPagos(View v){
-        Intent intent= new Intent(this, PasarelaPagos.class);
-        startActivity(intent);
     }
 
 

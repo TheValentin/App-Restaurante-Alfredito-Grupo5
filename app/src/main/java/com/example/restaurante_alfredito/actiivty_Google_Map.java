@@ -17,7 +17,7 @@ import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Build;
-
+import android.util.Log;
 
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -46,6 +46,9 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class actiivty_Google_Map extends FragmentActivity implements OnMapReadyCallback {
 
@@ -113,7 +116,18 @@ public class actiivty_Google_Map extends FragmentActivity implements OnMapReadyC
                 // el cual crearé más adelante
                 for (Location location : locationResult.getLocations()) {
                     agregarMarcador(location.getLatitude(),location.getLongitude());
-                    //Log.e("Coordenadas: ", location.toString());
+                    Log.e("Coordenadas: ", "Latitud: "+location.getLatitude()+" longitud: "+location.getLongitude());
+                    //////////////////////////////////////////////////aqui tomamos los datos para el firebase///////////////////////////////////////////////////////////////////
+
+                    Map<String,Object> latlang=new HashMap<>();
+
+                    latlang.put("latitud",location.getLatitude());
+                    latlang.put("longitud",location.getLongitude());
+                   // mDatabase.child("usuario").push().setValue(latlang); //Envio a la firebase los datos
+
+
+
+
                 }
 
             };
