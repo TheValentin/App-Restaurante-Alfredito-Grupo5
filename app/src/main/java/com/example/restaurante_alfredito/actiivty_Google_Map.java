@@ -1,7 +1,9 @@
 package com.example.restaurante_alfredito;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 
 
@@ -17,9 +19,13 @@ import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Build;
+import android.util.AttributeSet;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 
+import com.example.restaurante_alfredito.Actividades.AdministradorMenuActivity;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -73,11 +79,15 @@ public class actiivty_Google_Map extends FragmentActivity implements OnMapReadyC
 
     // Marcador para la ubicación del usuario
     Marker marker;
+    Marker marker1;
 
     // Mapa de Google
     private GoogleMap mMap;
 
     //private ActivityGoogleMapBinding binding;
+
+
+
 
 
 
@@ -115,7 +125,10 @@ public class actiivty_Google_Map extends FragmentActivity implements OnMapReadyC
                 // un marcador para la ubicación del usuario con el método agregarMarcador()
                 // el cual crearé más adelante
                 for (Location location : locationResult.getLocations()) {
+                    marcadorRestaruante();
                     agregarMarcador(location.getLatitude(),location.getLongitude());
+
+
                     Log.e("Coordenadas: ", "Latitud: "+location.getLatitude()+" longitud: "+location.getLongitude());
                     //////////////////////////////////////////////////aqui tomamos los datos para el firebase///////////////////////////////////////////////////////////////////
 
@@ -151,12 +164,14 @@ public class actiivty_Google_Map extends FragmentActivity implements OnMapReadyC
 
 
 
+
     }
+
 
     private void agregarMarcador(double lat, double lng) {
 
         LatLng coordenadas = new LatLng(lat, lng);
-        CameraUpdate miUbicacion = CameraUpdateFactory.newLatLngZoom(coordenadas, 19);
+        CameraUpdate miUbicacion = CameraUpdateFactory.newLatLngZoom(coordenadas, 15);
         if (marker != null) marker.remove();
         marker = mMap.addMarker(new MarkerOptions()
                 .position(coordenadas)
@@ -164,6 +179,16 @@ public class actiivty_Google_Map extends FragmentActivity implements OnMapReadyC
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.iconousuario)));
         mMap.animateCamera(miUbicacion);
 
+    }
+    private void marcadorRestaruante(){
+        LatLng coordenadas2 = new LatLng(-12.0249955, -77.0970169);
+        CameraUpdate miUbicacion2 = CameraUpdateFactory.newLatLngZoom(coordenadas2, 15);
+        if (marker1 != null) marker1.remove();
+        marker1 = mMap.addMarker(new MarkerOptions()
+                .position(coordenadas2)
+                .title("Restaurante")
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.iconousuario)));
+        mMap.animateCamera(miUbicacion2);
     }
 
 
@@ -313,11 +338,10 @@ public class actiivty_Google_Map extends FragmentActivity implements OnMapReadyC
             ActivityCompat.requestPermissions(actiivty_Google_Map.this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, 123);
         }
     }
-
-
-
-
-
+    public void EnviarMensaje(View v){
+        Intent intent = new Intent(this, Mensajeria.class);
+        startActivity(intent);
+    }
 
 
 }
