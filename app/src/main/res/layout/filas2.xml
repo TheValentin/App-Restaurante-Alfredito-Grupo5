@@ -9,7 +9,7 @@
 
 
     <ImageView
-        android:id="@+id/imagen"
+        android:id="@+id/imagen_detalle"
         android:layout_width="151dp"
         android:layout_height="129dp"
         android:layout_below="@+id/txtfecha"
@@ -28,18 +28,18 @@
         android:id="@+id/descripcion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imagen"
+        android:layout_below="@+id/imagen_detalle"
         android:layout_marginStart="54dp"
         android:layout_marginTop="20dp"
 
-        android:layout_toEndOf="@+id/button7"
+        android:layout_toEndOf="@+id/btn_Detalle_lista"
         android:text="TextView" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/btn_Detalle_lista"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imagen"
+        android:layout_below="@+id/imagen_detalle"
         android:layout_marginStart="14dp"
         android:layout_marginTop="9dp"
         android:layout_toEndOf="@+id/button8"
@@ -50,7 +50,7 @@
         android:id="@+id/button8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imagen"
+        android:layout_below="@+id/imagen_detalle"
         android:layout_marginTop="9dp"
         android:backgroundTint="@color/gris"
         android:text="Mas detalle" />

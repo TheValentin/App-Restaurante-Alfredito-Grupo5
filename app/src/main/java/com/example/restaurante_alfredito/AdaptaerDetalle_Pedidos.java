@@ -13,18 +13,17 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
-public class AdapterCatalago extends ArrayAdapter<Productos> {
+public class AdaptaerDetalle_Pedidos extends ArrayAdapter<Productos> {
 
-private Context mContext;
-private int mResourse;
+    private Context mContext;
+    private int mResourse;
 
-    public AdapterCatalago(@NonNull Context context, int resource, @NonNull ArrayList<Productos> objects) {
+    public AdaptaerDetalle_Pedidos(@NonNull Context context, int resource, @NonNull ArrayList<Productos> objects) {
         super(context, resource, objects);
         this.mContext=context;
         this.mResourse=resource;
+
     }
-
-
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -35,15 +34,19 @@ private int mResourse;
 
 
         ImageView imageView=  ( ImageView)convertView.findViewById(R.id.imagen_detalle);
-        TextView txtnombr = (TextView )  convertView.findViewById(R.id.txtfecha);
-        TextView descrp =  (TextView ) convertView.findViewById(R.id.descripcion);
+        TextView txtnombr = (TextView )  convertView.findViewById(R.id.txt_nombre_detalle);
+        TextView descrp =  (TextView ) convertView.findViewById(R.id.txt_precio_detalle);
+        TextView cant =  (TextView ) convertView.findViewById(R.id.txt_cantidad_detalle);
 
         imageView.setImageResource(getItem(position).getImagen());
         txtnombr.setText(getItem(position).getNombre());
         descrp.setText(getItem(position).getDescrip());
+        cant.setText(getItem(position).getCantidad());
+
 
 
         return convertView;
 
     }
+
 }

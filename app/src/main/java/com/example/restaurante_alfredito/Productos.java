@@ -6,12 +6,23 @@ public class Productos {
     String nombre;
     String descrip;
 
+
+
+    String cantidad ;
+
     public Productos(int imagen, String nombre, String descrip) {
         this.imagen = imagen;
         this.nombre = nombre;
         this.descrip = descrip;
     }
 
+
+    public Productos(int imagen, String nombre, String descrip,String cantidad) {
+        this.imagen = imagen;
+        this.nombre = nombre;
+        this.descrip = descrip;
+        this.cantidad=cantidad;
+    }
 
     public int getImagen() {
         return imagen;
@@ -37,5 +48,12 @@ public class Productos {
         this.descrip = descrip;
     }
 
+    public String getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(String cantidad) {
+        this.cantidad = cantidad;
+    }
 
 }
