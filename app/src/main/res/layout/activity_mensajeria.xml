@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    app:cardCornerRadius="6dp"
+    android:layout_margin="10dp"
+    app:cardBackgroundColor="@color/blue"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".Mensajeria"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="467dp"
+        android:layout_height="match_parent"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/correoCli"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="cliente@cliente.com"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/mensajeCli"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="28dp"
+            android:text="Mensaje de prueba"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/correoCli" />
+
+        <TextView
+            android:id="@+id/mensajeCli_fecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="21/10/2022 18:30 PM"
+            app:layout_constraintBottom_toBottomOf="@id/mensajeCli"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

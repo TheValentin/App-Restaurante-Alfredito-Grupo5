@@ -22,4 +22,10 @@
         android:name="com.example.restaurante_alfredito.Actividades.uiCliente.carrito.CarritoFragment"
         android:label="Carrito"
         tools:layout="@layout/fragment_carrito" />
+
+    <fragment
+        android:id="@+id/nav_historial_pedidos"
+        android:name="com.example.restaurante_alfredito.Actividades.uiCliente.carrito.HistorialPedidoFragment"
+        android:label="Historial de pedidos"
+        tools:layout="@layout/fragment_historial_de_pedidos_cliente" />
 </navigation>

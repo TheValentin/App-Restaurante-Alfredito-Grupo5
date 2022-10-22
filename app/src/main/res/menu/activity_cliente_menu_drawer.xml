@@ -16,6 +16,10 @@
             android:id="@+id/nav_Carrito"
             android:icon="@drawable/ic_baseline_shopping_basket_24"
             android:title="Carrito" />
+        <item
+            android:id="@+id/nav_historial_pedidos"
+            android:icon="@drawable/ic_baseline_article_24"
+            android:title="Historial de pedidos" />
 
 
     </group>
