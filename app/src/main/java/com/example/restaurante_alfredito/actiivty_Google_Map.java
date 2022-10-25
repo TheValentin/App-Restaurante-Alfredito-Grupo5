@@ -108,7 +108,7 @@ public class actiivty_Google_Map extends FragmentActivity implements OnMapReadyC
         // Hago uso de FusedLocationProviderClient
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
-        // Método para obtener la última ubicación del usuario (Lo crearé más adelante)
+        // Método para obtener la última ubicación del usuario
         obtenerUltimaUbicacion();
 
         // Con LocationCallback enviamos notificaciones de la ubicación del usuario
@@ -156,13 +156,8 @@ public class actiivty_Google_Map extends FragmentActivity implements OnMapReadyC
         // Verificamos la configuración de los permisos de ubicación
         checkLocationSetting(builder);
 
-
         //Agregar nuecos
         createLocationRequest();
-
-
-
-
 
 
     }
@@ -180,6 +175,7 @@ public class actiivty_Google_Map extends FragmentActivity implements OnMapReadyC
         mMap.animateCamera(miUbicacion);
 
     }
+
     private void marcadorRestaruante(){
         LatLng coordenadas2 = new LatLng(-12.0249955, -77.0970169);
         CameraUpdate miUbicacion2 = CameraUpdateFactory.newLatLngZoom(coordenadas2, 15);
@@ -219,10 +215,8 @@ public class actiivty_Google_Map extends FragmentActivity implements OnMapReadyC
             if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 // TODO: Consider calling
                 //    Activity#requestPermissions
-
                 // muestra una ventana o Dialog en donde el usuario debe
                 // dar permisos para el uso del GPS de su dispositivo.
-                // El método dialogoSolicitarPermisoGPS() lo crearemos más adelante.
                 dialogoSolicitarPermisoGPS();
 
             }
