@@ -1,17 +1,17 @@
 package com.example.restaurante_alfredito;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.restaurante_alfredito.Actividades.AdministradorMenuActivity;
 import com.example.restaurante_alfredito.Actividades.ClienteMenuActivity;
 import com.example.restaurante_alfredito.Actividades.MotorizadoMenuActivity;
 import com.google.android.material.textfield.TextInputLayout;
+
 import cn.pedant.SweetAlert.SweetAlertDialog;
-import android.graphics.Color;
 
 public class antivity_iniciar1 extends AppCompatActivity {
 
