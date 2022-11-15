@@ -26,6 +26,9 @@
         <entry key="..\:/OneDrive - Universidad Tecnologica del Peru/Escritorio/Nueva carpeta/App-Restaurante-Alfredito-Grupo5/app/src/main/res/menu/cliente_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/OneDrive - Universidad Tecnologica del Peru/Escritorio/Nueva carpeta/App-Restaurante-Alfredito-Grupo5/app/src/main/res/menu/motorizado.xml" value="0.25416666666666665" />
         <entry key="..\:/Proyectos Universidad/ProyectoFinalAndroid/restaurantealfredito/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3275" />
+        <entry key="..\:/Proyectos Universidad/ProyectoFinalAndroid/restaurantealfredito/app/src/main/res/drawable/ic_MarcadorRestaurante_background.xml" value="0.1" />
+        <entry key="..\:/Proyectos Universidad/ProyectoFinalAndroid/restaurantealfredito/app/src/main/res/drawable/ic_MarcadorRestaurante_foreground.xml" value="0.3635" />
+        <entry key="..\:/Proyectos Universidad/ProyectoFinalAndroid/restaurantealfredito/app/src/main/res/drawable/ic_MarcadorRestaurantee_background.xml" value="0.2115" />
         <entry key="..\:/Proyectos Universidad/ProyectoFinalAndroid/restaurantealfredito/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.3275" />
         <entry key="..\:/Proyectos Universidad/ProyectoFinalAndroid/restaurantealfredito/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.3275" />
         <entry key="..\:/Proyectos Universidad/ProyectoFinalAndroid/restaurantealfredito/app/src/main/res/drawable/ic_baseline_article_24.xml" value="0.3275" />
@@ -33,8 +36,11 @@
         <entry key="..\:/Proyectos Universidad/ProyectoFinalAndroid/restaurantealfredito/app/src/main/res/drawable/ic_baseline_comment_24.xml" value="0.26" />
         <entry key="..\:/Proyectos Universidad/ProyectoFinalAndroid/restaurantealfredito/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.3275" />
         <entry key="..\:/Proyectos Universidad/ProyectoFinalAndroid/restaurantealfredito/app/src/main/res/drawable/ic_baseline_map_24.xml" value="0.3275" />
+        <entry key="..\:/Proyectos Universidad/ProyectoFinalAndroid/restaurantealfredito/app/src/main/res/drawable/ic_baseline_pedal_bike_24.xml" value="0.18" />
         <entry key="..\:/Proyectos Universidad/ProyectoFinalAndroid/restaurantealfredito/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.3675" />
         <entry key="..\:/Proyectos Universidad/ProyectoFinalAndroid/restaurantealfredito/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3275" />
+        <entry key="..\:/Proyectos Universidad/ProyectoFinalAndroid/restaurantealfredito/app/src/main/res/drawable/ic_marcadorrestaurantee_background.xml" value="0.2095" />
+        <entry key="..\:/Proyectos Universidad/ProyectoFinalAndroid/restaurantealfredito/app/src/main/res/drawable/ic_marcadorrestaurantee_foreground.xml" value="0.2095" />
         <entry key="..\:/Proyectos Universidad/ProyectoFinalAndroid/restaurantealfredito/app/src/main/res/drawable/ic_menu_camera.xml" value="0.3275" />
         <entry key="..\:/Proyectos Universidad/ProyectoFinalAndroid/restaurantealfredito/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.3275" />
         <entry key="..\:/Proyectos Universidad/ProyectoFinalAndroid/restaurantealfredito/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.3275" />
@@ -83,8 +89,12 @@
         <entry key="..\:/Proyectos Universidad/ProyectoFinalAndroid/restaurantealfredito/app/src/main/res/menu/cliente_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Proyectos Universidad/ProyectoFinalAndroid/restaurantealfredito/app/src/main/res/menu/motorizado.xml" value="0.36666666666666664" />
         <entry key="..\:/Proyectos Universidad/ProyectoFinalAndroid/restaurantealfredito/app/src/main/res/menu/motorizado_menu.xml" value="0.31296296296296294" />
+        <entry key="..\:/Proyectos Universidad/ProyectoFinalAndroid/restaurantealfredito/app/src/main/res/mipmap-anydpi-v26/ic_MarcadorRestaurante.xml" value="0.1" />
+        <entry key="..\:/Proyectos Universidad/ProyectoFinalAndroid/restaurantealfredito/app/src/main/res/mipmap-anydpi-v26/ic_MarcadorRestaurante_round.xml" value="0.1" />
         <entry key="..\:/Proyectos Universidad/ProyectoFinalAndroid/restaurantealfredito/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3275" />
         <entry key="..\:/Proyectos Universidad/ProyectoFinalAndroid/restaurantealfredito/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3275" />
+        <entry key="..\:/Proyectos Universidad/ProyectoFinalAndroid/restaurantealfredito/app/src/main/res/mipmap-anydpi-v26/ic_marcadorrestaurantee.xml" value="0.2195" />
+        <entry key="..\:/Proyectos Universidad/ProyectoFinalAndroid/restaurantealfredito/app/src/main/res/mipmap-anydpi-v26/ic_marcadorrestaurantee_round.xml" value="0.2095" />
         <entry key="..\:/Users/clinton/Documents/GitHub/App-Restaurante-Alfredito-Grupo5/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.1955" />
         <entry key="..\:/Users/clinton/Documents/GitHub/App-Restaurante-Alfredito-Grupo5/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.1" />
         <entry key="..\:/Users/clinton/Documents/GitHub/App-Restaurante-Alfredito-Grupo5/app/src/main/res/drawable/ic_baseline_child_care_24.xml" value="0.1955" />

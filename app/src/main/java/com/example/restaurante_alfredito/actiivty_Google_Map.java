@@ -56,6 +56,30 @@ import com.google.android.gms.tasks.Task;
 import java.util.HashMap;
 import java.util.Map;
 
+import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CustomCap;
+import com.google.android.gms.maps.model.Dash;
+import com.google.android.gms.maps.model.Dot;
+import com.google.android.gms.maps.model.Gap;
+import com.google.android.gms.maps.model.JointType;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.PatternItem;
+import com.google.android.gms.maps.model.Polygon;
+import com.google.android.gms.maps.model.PolygonOptions;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
+import com.google.android.gms.maps.model.RoundCap;
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.widget.Autocomplete;
+import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
+
+import java.util.Arrays;
+import java.util.List;
+
+
 public class actiivty_Google_Map extends FragmentActivity implements OnMapReadyCallback {
 
 
@@ -87,7 +111,7 @@ public class actiivty_Google_Map extends FragmentActivity implements OnMapReadyC
     //private ActivityGoogleMapBinding binding;
 
 
-
+    private static int AUTOCOMPLETE_REQUEST_CODE = 1;
 
 
 
@@ -96,6 +120,14 @@ public class actiivty_Google_Map extends FragmentActivity implements OnMapReadyC
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_google_map);
+
+
+        //prueba //
+        Places.initialize(getApplicationContext(), getString(R.string.google_key));
+
+        //prueba //
+
+
         /*
         binding = ActivityGoogleMapBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -127,9 +159,12 @@ public class actiivty_Google_Map extends FragmentActivity implements OnMapReadyC
                 for (Location location : locationResult.getLocations()) {
                     marcadorRestaruante();
                     agregarMarcador(location.getLatitude(),location.getLongitude());
+                    ruta(location.getLatitude(),location.getLongitude());
 
 
                     Log.e("Coordenadas: ", "Latitud: "+location.getLatitude()+" longitud: "+location.getLongitude());
+
+
                     //////////////////////////////////////////////////aqui tomamos los datos para el firebase///////////////////////////////////////////////////////////////////
 
                     Map<String,Object> latlang=new HashMap<>();
@@ -161,6 +196,15 @@ public class actiivty_Google_Map extends FragmentActivity implements OnMapReadyC
 
 
     }
+    private void completo(){
+        List<Place.Field> fields = Arrays.asList(Place.Field.ID, Place.Field.NAME);
+
+        // Start the autocomplete intent.
+        Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.FULLSCREEN, fields)
+                .build(this);
+        startActivityForResult(intent, AUTOCOMPLETE_REQUEST_CODE);
+    }
+
 
 
     private void agregarMarcador(double lat, double lng) {
@@ -183,7 +227,7 @@ public class actiivty_Google_Map extends FragmentActivity implements OnMapReadyC
         marker1 = mMap.addMarker(new MarkerOptions()
                 .position(coordenadas2)
                 .title("Restaurante")
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.iconousuario)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.moto_removebg_preview)).anchor(0.0f,1.0f));
         mMap.animateCamera(miUbicacion2);
     }
 
@@ -198,17 +242,28 @@ public class actiivty_Google_Map extends FragmentActivity implements OnMapReadyC
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+
+
+    public void ruta(double lat, double lng){ //recta
+        Polyline polyline1 = mMap.addPolyline(new PolylineOptions()
+                .clickable(true)
+                .add(
+                        new LatLng(lat,lng), // mi ubicacion
+                        new LatLng(-12.0249955, -77.0970169))); //restauramte
+
+    }
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-/*
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-12.022565,-77.102200);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));*/
-
     }
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private void obtenerUltimaUbicacion() {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -223,6 +278,8 @@ public class actiivty_Google_Map extends FragmentActivity implements OnMapReadyC
         }
 
     }
+
+    ////////////////////////////
     protected LocationRequest createLocationRequest() {
         LocationRequest mLocationRequest = LocationRequest.create();
         mLocationRequest.setInterval(30000);
