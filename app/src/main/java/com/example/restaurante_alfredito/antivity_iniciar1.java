@@ -9,6 +9,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.restaurante_alfredito.Actividades.AdministradorMenuActivity;
 import com.example.restaurante_alfredito.Actividades.ClienteMenuActivity;
 import com.example.restaurante_alfredito.Actividades.MotorizadoMenuActivity;
+import com.example.restaurante_alfredito.servicios.ServicioAdministrador;
+import com.example.restaurante_alfredito.servicios.ServicioAdministradorImp;
+import com.example.restaurante_alfredito.servicios.ServicioClientes;
+import com.example.restaurante_alfredito.servicios.ServicioClientesImp;
+import com.example.restaurante_alfredito.servicios.ServicioMotorizado;
+import com.example.restaurante_alfredito.servicios.ServicioMotorizadoImp;
 import com.google.android.material.textfield.TextInputLayout;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
@@ -16,13 +22,23 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 public class antivity_iniciar1 extends AppCompatActivity {
 
 
+    ServicioMotorizado serv_m ;
+    ServicioAdministrador serv_a;
+    ServicioClientes serv_c;
 
     private TextInputLayout txtUsuario, txtContraseña;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_antivity_iniciar1);
+
+
         enlazarControlado();
+        serv_m = new ServicioMotorizadoImp();
+        serv_a= new ServicioAdministradorImp();
+        serv_c=new ServicioClientesImp();
+
+
     }
     private void enlazarControlado() {
         txtUsuario = (TextInputLayout) findViewById(R.id.txtUsuario);
@@ -36,6 +52,40 @@ public class antivity_iniciar1 extends AppCompatActivity {
         String usuClien="cliente";
         String Contraseña="123";
 
+        Object[] fil_M = serv_m .validarMotorizado(antivity_iniciar1.this,txtUsuario.getEditText().getText().toString(),txtContraseña.getEditText().getText().toString());
+        Object[] fil_A= serv_a .validarAdministrador(antivity_iniciar1.this,txtUsuario.getEditText().getText().toString(),txtContraseña.getEditText().getText().toString());
+        Object[] fil_C= serv_c .validarClientes(antivity_iniciar1.this,txtUsuario.getEditText().getText().toString(),txtContraseña.getEditText().getText().toString());
+
+        if(fil_M!= null || fil_A!= null || fil_C!= null){
+
+               if (fil_M!=null){
+                   Intent intent = new Intent(this, MotorizadoMenuActivity.class);
+                   startActivity(intent);
+                         }
+
+               if (fil_A!=null){
+                   Intent intent = new Intent(this, AdministradorMenuActivity.class);
+                   startActivity(intent);
+               }
+
+               if (fil_C!=null){
+                   Intent intent = new Intent(this, ClienteMenuActivity.class);
+                   startActivity(intent);
+               }
+
+
+        }else {
+
+            new SweetAlertDialog(this,SweetAlertDialog.ERROR_TYPE)
+                    .setTitleText("Credenciales incorrectos")
+                    .show();
+        }
+
+
+
+
+/*
+
         if( txtUsuario.getEditText().getText().toString().equals(usuAdm) && txtContraseña.getEditText().getText().toString().equals(Contraseña) ){
 
 
@@ -48,6 +98,8 @@ public class antivity_iniciar1 extends AppCompatActivity {
             startActivity(intent);
 
         }
+
+
         else  if( txtUsuario.getEditText().getText().toString().equals(usuMoto) && txtContraseña.getEditText().getText().toString().equals(Contraseña) ){
 
 
@@ -81,6 +133,7 @@ public class antivity_iniciar1 extends AppCompatActivity {
                     .show();
         }
 
+*/
 
     }
 }
