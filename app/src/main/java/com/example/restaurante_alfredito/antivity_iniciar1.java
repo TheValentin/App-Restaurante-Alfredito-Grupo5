@@ -25,7 +25,7 @@ public class antivity_iniciar1 extends AppCompatActivity {
         enlazarControlado();
     }
     private void enlazarControlado() {
-        txtUsuario = (TextInputLayout) findViewById(R.id.txtUsuario);
+        txtUsuario = (TextInputLayout) findViewById(R.id.txtUsuarioRegistro);
         txtContraseña = (TextInputLayout) findViewById(R.id.txtContrasena);
     }
 
