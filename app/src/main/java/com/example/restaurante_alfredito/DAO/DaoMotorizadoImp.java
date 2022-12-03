@@ -34,7 +34,7 @@ public class DaoMotorizadoImp implements  DaoMotorizado  {
         if (c!=null){
             if (c.moveToFirst()){
                 do{
-                     M = new Motorizado();
+                    M = new Motorizado();
                     M.setIdmotorizado(c.getString(0));
                     M.setNombre(c.getString(1));
                     M.setApellido(c.getString(2));
@@ -45,17 +45,10 @@ public class DaoMotorizadoImp implements  DaoMotorizado  {
 
                     list.add(M);
                 }while (c.moveToNext());
-
             }
             c.close();
-
-
-
-
         }else {
-
         }
-
         db.close();
         return list;
     }

@@ -19,7 +19,6 @@ public class ServicioAdministradorImp implements  ServicioAdministrador{
             for (int i = 0; i < lis.size(); i++) {
                 Administrador p = ( Administrador) lis.get(i);
 
-
                 if (p.getUsuario().equals(usu) && p.getContrasena().equals(pas)) {
                     Object[]fil=new Object[2];
                     fil[0]=p.getIdadmin();
@@ -27,8 +26,6 @@ public class ServicioAdministradorImp implements  ServicioAdministrador{
                     return fil;
                 }
             }
-
-
         }
         return null;
     }

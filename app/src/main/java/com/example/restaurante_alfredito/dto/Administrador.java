@@ -9,7 +9,7 @@ public class Administrador {
     private String telefono;
     private byte[] foto  ;
     private String usuario ;
-    private String  contrasena ;
+    private String contrasena ;
 
     public Administrador() {
 
