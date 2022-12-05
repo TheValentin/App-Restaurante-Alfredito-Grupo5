@@ -122,7 +122,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btn_persistencia_guardar_producto"
+        android:id="@+id/btn_persistencia_guardar_o_actualizar_producto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Guardar" />
@@ -133,21 +133,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button102"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Buscar" />
-
-        <Button
-            android:id="@+id/button112"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Actualizar" />
-
-        <Button
-            android:id="@+id/button122"
+            android:id="@+id/btn_persistencia_Eliminar_producto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

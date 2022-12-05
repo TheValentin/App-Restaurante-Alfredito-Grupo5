@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -25,14 +26,20 @@ import com.example.restaurante_alfredito.servicios.ServicioProducto;
 import com.example.restaurante_alfredito.servicios.ServicioProductoImp;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 
-public class persistencia_productosFragment extends Fragment {
+import cn.pedant.SweetAlert.SweetAlertDialog;
+import android.graphics.Color;
+
+
+
+public class persistencia_productosFragment extends Fragment implements View.OnFocusChangeListener {
 
     private static final int REQUERIR_PERMISOS =1000;
     private static final int REQ_CAMERA = 1001 ;
 ImageView foto_producto;
-Button tomar_captura, guardar_prod;
+Button tomar_captura, guardar_prod , eliminar_prod;
 TextInputLayout id ,nomb, stoc, cate, precio;
 
 ServicioProducto servicioProducto;
@@ -52,9 +59,12 @@ ServicioProducto servicioProducto;
 
         foto_producto=(ImageView)view.findViewById(R.id.img_producto_persistencia);
         tomar_captura=(Button) view.findViewById(R.id.btn_capturar_imagen);
-        guardar_prod=(Button) view.findViewById(R.id.btn_persistencia_guardar_producto);
+        guardar_prod=(Button) view.findViewById(R.id.btn_persistencia_guardar_o_actualizar_producto);
+        eliminar_prod=(Button) view.findViewById(R.id.btn_persistencia_Eliminar_producto);
 
         id = (TextInputLayout)view.findViewById(R.id.txt_persistencia_id_productos) ;
+        id.getEditText().setOnFocusChangeListener(this);
+
         nomb =(TextInputLayout)view.findViewById(R.id.txt_persistencia_nombre_productos) ;
         stoc=(TextInputLayout)view.findViewById(R.id.txt_persistencia_stock_productos) ;
         cate=(TextInputLayout)view.findViewById(R.id.txt_persistencia_categoria_productos) ;
@@ -76,26 +86,68 @@ ServicioProducto servicioProducto;
         guardar_prod.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                BitmapDrawable drawable = (BitmapDrawable) foto_producto.getDrawable();
-                Bitmap bitmap = drawable.getBitmap();
+
+if (guardar_prod.getText().equals("GUARDAR")){
+    byte[] byteArray =null;
+    BitmapDrawable drawable = (BitmapDrawable) foto_producto.getDrawable();
+    Bitmap bitmap = drawable.getBitmap();
+    if(bitmap !=null){
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap .compress(Bitmap.CompressFormat.PNG, 100, stream);
+          byteArray = stream.toByteArray();
+        bitmap.recycle();
+    }
+
+    servicioProducto.grabarProducto(getActivity(),
+            id.getEditText().getText().toString(),
+            nomb.getEditText().getText().toString(),
+            Integer.parseInt(stoc.getEditText().getText().toString()),
+            cate.getEditText().getText().toString(),
+            Double.parseDouble(precio.getEditText().getText().toString()),
+            byteArray
+    );
+    limpiaCajas2(false);
 
 
-                ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                bitmap .compress(Bitmap.CompressFormat.PNG, 100, stream);
-                byte[] byteArray = stream.toByteArray();
-                bitmap.recycle();
+}else if(guardar_prod.getText().equals("ACTUALIZAR")){
 
-                servicioProducto.grabarProducto(getActivity(),
-                        id.getEditText().getText().toString(),
-                        nomb.getEditText().getText().toString(),
-                        Integer.parseInt(stoc.getEditText().getText().toString()),
-                        cate.getEditText().getText().toString(),
-                        Double.parseDouble(precio.getEditText().getText().toString()),
-                        byteArray
-                );
+    byte[] byteArray =null;
+    BitmapDrawable drawable = (BitmapDrawable) foto_producto.getDrawable();
+    Bitmap bitmap = drawable.getBitmap();
+    if(bitmap !=null){
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap .compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byteArray = stream.toByteArray();
+        bitmap.recycle();
+    }
+
+    servicioProducto.ActualizarProducto(getActivity(),
+            id.getEditText().getText().toString(),
+            nomb.getEditText().getText().toString(),
+            Integer.parseInt(stoc.getEditText().getText().toString()),
+            cate.getEditText().getText().toString(),
+            Double.parseDouble(precio.getEditText().getText().toString()),
+            byteArray
+    );
+    limpiaCajas2(false);
+
+}
+
 
             }
         });
+
+        eliminar_prod.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                servicioProducto.eliminarProducto(getContext(),id.getEditText().getText().toString());
+                limpiaCajas2(false);
+
+
+            }
+        });
+
+
     }
 
     @Override
@@ -118,5 +170,75 @@ ServicioProducto servicioProducto;
                         new String[]{Manifest.permission.CAMERA}, REQUERIR_PERMISOS);
             }
         }
+    }
+
+
+    @Override
+    public void onFocusChange(View view, boolean b) {
+        if (!b){
+            buscarItem();
+        }
+    }
+
+    private void buscarItem() {
+  Object[] b = servicioProducto.Buscar_Producto(getActivity(),id.getEditText().getText().toString());
+
+  if (b!=null){
+      nomb.getEditText().setText(b[1].toString());
+      stoc.getEditText().setText(b[2].toString());
+      cate.getEditText().setText(b[3].toString());
+      precio.getEditText().setText(b[4].toString());
+
+      byte[] blob = (byte[]) b[5];
+      ByteArrayInputStream bais= null;
+      Bitmap bitmap= null;
+      if (blob !=null){
+           bais = new ByteArrayInputStream(blob);
+          bitmap = BitmapFactory.decodeStream(bais);
+      }
+
+      foto_producto.setImageBitmap(bitmap);
+
+      new SweetAlertDialog(getActivity(),SweetAlertDialog.SUCCESS_TYPE)
+              .setTitleText("Producto Encontrado")
+              .show();
+      
+      guardar_prod.setText("ACTUALIZAR");
+      eliminar_prod.setEnabled(true);
+  }else {
+      limpiaCajas(false);
+      guardar_prod.setText("GUARDAR");
+      eliminar_prod.setEnabled(false);
+
+  }
+
+
+    }
+
+    private void limpiaCajas(boolean limpiarCodigo) {
+        if (limpiarCodigo){
+            id.getEditText().setText("");
+
+        }
+        nomb.getEditText().setText("");
+        stoc.getEditText().setText("");
+        cate.getEditText().setText("");
+        precio.getEditText().setText("");
+        foto_producto.setImageBitmap(null);
+
+    }
+
+    private void limpiaCajas2(boolean limpiarCodigo) {
+        if (limpiarCodigo){
+
+
+        }
+        id.getEditText().setText("");
+        nomb.getEditText().setText("");
+        stoc.getEditText().setText("");
+        cate.getEditText().setText("");
+        precio.getEditText().setText("");
+        foto_producto.setImageBitmap(null);
+        id.getEditText().setOnFocusChangeListener(this);
     }
 }

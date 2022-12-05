@@ -12,8 +12,8 @@ public interface DaoProducto {
 
     String CrearProducto(Context context, Producto  producto);
 
-
-    String ActualizarProducto(Producto producto);
+    public Producto BuscarProducto(Context context, String  id);
+    String ActualizarProducto(Context context,Producto producto);
 
     String EliminarProducto(Context context,  String  id);
 
