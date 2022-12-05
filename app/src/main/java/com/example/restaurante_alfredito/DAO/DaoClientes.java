@@ -4,9 +4,12 @@ import android.content.Context;
 
 import com.example.restaurante_alfredito.dto.Clientes;
 import com.example.restaurante_alfredito.dto.Motorizado;
+import com.example.restaurante_alfredito.dto.Producto;
 
 import java.util.ArrayList;
 
 public interface DaoClientes {
     ArrayList<Clientes> ListarClientes(Context context);
+    String CrearCliente(Context context, Clientes clientes );
+
 }

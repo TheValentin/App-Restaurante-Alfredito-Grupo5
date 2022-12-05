@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.example.restaurante_alfredito.DAO.DaoClientesImp;
 import com.example.restaurante_alfredito.DAO.DaoMotorizadoImp;
+import com.example.restaurante_alfredito.DAO.DaoProductoImp;
 import com.example.restaurante_alfredito.dto.Clientes;
 import com.example.restaurante_alfredito.dto.Motorizado;
 
@@ -31,5 +32,28 @@ public class ServicioClientesImp implements  ServicioClientes{
 
         }
         return null;
+    }
+
+    @Override
+    public String RegistrarUsuariosCLientes(Context context, String nombre, String apellido, String telefno, String dni, String correo, String usuario, String contrasena, String direccion, String idUsuario) {
+
+        Clientes c=new Clientes();
+
+        c.setIdclientes(idUsuario);
+        c.setNombre(nombre);
+        c.setApellido(apellido);
+        c.setTelefono(telefno);
+        c.setDni(dni);
+        c.setCorreo(correo);
+        c.setUsuario(usuario);
+        c.setContrasena(contrasena);
+        c.setDireccion(direccion);
+
+
+        String msg=new DaoClientesImp().CrearCliente(context,c);
+        if (msg==null) {
+            msg="Cliente Registrado";
+        }
+        return msg;
     }
 }
