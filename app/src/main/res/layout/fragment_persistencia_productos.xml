@@ -48,7 +48,7 @@
                 android:text="Captura" />
 
             <Button
-                android:id="@+id/button21"
+                android:id="@+id/btn_capturar_imagen_galeria"
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
                 android:layout_weight="1"

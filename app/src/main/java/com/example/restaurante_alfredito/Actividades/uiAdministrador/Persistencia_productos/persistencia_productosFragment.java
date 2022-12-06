@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -38,8 +39,10 @@ public class persistencia_productosFragment extends Fragment implements View.OnF
 
     private static final int REQUERIR_PERMISOS =1000;
     private static final int REQ_CAMERA = 1001 ;
+    private static final int REQ_CAMERA_GALERIA = 1002 ;
+
 ImageView foto_producto;
-Button tomar_captura, guardar_prod , eliminar_prod;
+Button tomar_captura, guardar_prod , eliminar_prod,ir_almacenamiento;
 TextInputLayout id ,nomb, stoc, cate, precio;
 
 ServicioProducto servicioProducto;
@@ -61,6 +64,7 @@ ServicioProducto servicioProducto;
         tomar_captura=(Button) view.findViewById(R.id.btn_capturar_imagen);
         guardar_prod=(Button) view.findViewById(R.id.btn_persistencia_guardar_o_actualizar_producto);
         eliminar_prod=(Button) view.findViewById(R.id.btn_persistencia_Eliminar_producto);
+        ir_almacenamiento=(Button) view.findViewById(R.id.btn_capturar_imagen_galeria);
 
         id = (TextInputLayout)view.findViewById(R.id.txt_persistencia_id_productos) ;
         id.getEditText().setOnFocusChangeListener(this);
@@ -79,6 +83,17 @@ ServicioProducto servicioProducto;
                 Intent intent= new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(intent,REQ_CAMERA);  //activando camara pero
 
+            }
+        });
+        //////////////////////////
+        ir_almacenamiento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent= new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+
+                intent.setType("image/");
+                startActivityForResult(Intent.createChooser(intent,"Seleccione la aplicacion"),REQ_CAMERA_GALERIA);
             }
         });
 /////////////////////////////////////////
@@ -157,7 +172,14 @@ if (guardar_prod.getText().equals("GUARDAR")){
         if (requestCode==REQ_CAMERA && resultCode==-1) { // ver si acepto
             Bitmap foto = (Bitmap) data.getExtras().get("data");
             foto_producto.setImageBitmap(foto);
+        }else if (requestCode==REQ_CAMERA_GALERIA && resultCode==-1){
+
+            Uri path=data.getData();
+            foto_producto.setImageURI(path);
+
         }
+
+
     }
 
     private void solicitarPermisos() {
