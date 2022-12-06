@@ -2,6 +2,7 @@ package com.example.restaurante_alfredito;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.restaurante_alfredito.Actividades.AdministradorMenuActivity;
 import com.example.restaurante_alfredito.Actividades.ClienteMenuActivity;
 import com.example.restaurante_alfredito.Actividades.MotorizadoMenuActivity;
+import com.example.restaurante_alfredito.DAO.DaoClientesImp;
+import com.example.restaurante_alfredito.dto.Clientes;
 import com.example.restaurante_alfredito.servicios.ServicioAdministrador;
 import com.example.restaurante_alfredito.servicios.ServicioAdministradorImp;
 import com.example.restaurante_alfredito.servicios.ServicioClientes;
@@ -47,10 +50,6 @@ public class antivity_iniciar1 extends AppCompatActivity {
 
     public void LoginIniciando(View v){
 
-        String usuAdm="admin";
-        String usuMoto="moto";
-        String usuClien="cliente";
-        String Contraseña="123";
 
         Object[] fil_M = serv_m .validarMotorizado(antivity_iniciar1.this,txtUsuario.getEditText().getText().toString(),txtContraseña.getEditText().getText().toString());
         Object[] fil_A= serv_a .validarAdministrador(antivity_iniciar1.this,txtUsuario.getEditText().getText().toString(),txtContraseña.getEditText().getText().toString());
@@ -62,17 +61,14 @@ public class antivity_iniciar1 extends AppCompatActivity {
                    Intent intent = new Intent(this, MotorizadoMenuActivity.class);
                    startActivity(intent);
                          }
-
                if (fil_A!=null){
                    Intent intent = new Intent(this, AdministradorMenuActivity.class);
                    startActivity(intent);
                }
-
                if (fil_C!=null){
                    Intent intent = new Intent(this, ClienteMenuActivity.class);
                    startActivity(intent);
                }
-
 
         }else {
 

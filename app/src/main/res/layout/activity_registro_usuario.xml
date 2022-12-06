@@ -112,7 +112,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/txtcontraseña"
+                    android:id="@+id/txtcontraseñaRegistroUsuario"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="@dimen/pd_TextImpus">

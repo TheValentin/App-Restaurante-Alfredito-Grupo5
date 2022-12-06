@@ -1,5 +1,6 @@
 package com.example.restaurante_alfredito.DAO;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -43,17 +44,11 @@ public class DaoClientesImp implements  DaoClientes{
                     M.setContrasena(c.getString(8));
                     list.add(M);
                 }while (c.moveToNext());
-
             }
             c.close();
 
-
-
-
         }else {
-
         }
-
         db.close();
         return list;
     }
@@ -63,18 +58,20 @@ public class DaoClientesImp implements  DaoClientes{
     public String CrearCliente(Context context, Clientes clientes) {
         String mensaje = null;
         try {
+
             db = new ConectaDB(context, GlobalesApp.BDD,null,GlobalesApp.VERSION).getWritableDatabase();
 
             ContentValues registro =  new ContentValues();
-            registro.put("idclientes",clientes.getIdclientes());
-            registro.put("nombre",clientes.getNombre());
-            registro.put("apellido",clientes.getApellido());
-            registro.put("dni",clientes.getDni());
-            registro.put("telefono",clientes.getTelefono());
-            registro.put("correo",clientes.getCorreo());
-            registro.put("direccion",clientes.getDireccion());
-            registro.put("usuario",clientes.getUsuario());
-            registro.put("contrasena",clientes.getContrasena());
+
+            registro.put("idclientes",clientes.getIdclientes().toString());
+            registro.put("nombre",clientes.getNombre().toString());
+            registro.put("apellido",clientes.getApellido().toString());
+            registro.put("dni",clientes.getDni().toString());
+            registro.put("telefono",clientes.getTelefono().toString());
+            registro.put("correo",clientes.getCorreo().toString());
+            registro.put("direccion",clientes.getDireccion().toString());
+            registro.put("usuario",clientes.getUsuario().toString());
+            registro.put("contrasena",clientes.getContrasena().toString());
 
             long ctos =db.insert(GlobalesApp.TBL_CLIENTES,null,registro);
             if (ctos == 0) {
@@ -90,6 +87,7 @@ public class DaoClientesImp implements  DaoClientes{
         }
         return mensaje;
     }
+
 
 
 }
