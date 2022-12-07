@@ -9,4 +9,6 @@ public interface ServicioMotorizado {
     String ActualizarEmpleado(Context context, String idEmpleado, String nombre, String apellido, String dni, String telefono, byte[] imagen, String usuario, String contrasena);
 
     Object[] Buscar_Motorizado(Context context, String cod);
+
+    String eliminarEmpleado(Context context, String cod);
 }

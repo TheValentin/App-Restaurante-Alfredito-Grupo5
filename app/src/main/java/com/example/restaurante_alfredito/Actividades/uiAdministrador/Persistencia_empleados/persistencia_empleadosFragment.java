@@ -3,6 +3,7 @@ package com.example.restaurante_alfredito.Actividades.uiAdministrador.Persistenc
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +24,7 @@ import java.io.ByteArrayInputStream;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
-public class persistencia_empleadosFragment extends Fragment implements View.OnFocusChangeListener {
+public class persistencia_empleadosFragment extends Fragment {
 
 
 
@@ -59,7 +60,6 @@ public class persistencia_empleadosFragment extends Fragment implements View.OnF
         GuardarMotorizado=(Button) view.findViewById(R.id.btnGuardarEmpleado_Registro_admin);
         EliminarMotorizado=(Button) view.findViewById(R.id.btnEliminarEmpleado_Registro_admin);
         BuscarEmpleado=(Button) view.findViewById(R.id.btnBuscarEmpleado_Registro_admin);
-
         //Agregar empleado//
         GuardarMotorizado.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,14 +83,26 @@ public class persistencia_empleadosFragment extends Fragment implements View.OnF
             }
         });
 
+        EliminarMotorizado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                servicioMotorizado.eliminarEmpleado(getContext(),idMotorizado.getEditText().getText().toString());
+                limpiarCaja(false);
+                EliminarMotorizado.setEnabled(false);
+
+            }
+        });
+        BuscarEmpleado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                buscarItem();
+            }
+        });
+
+
     }
 
-    @Override
-    public void onFocusChange(View view, boolean b) {
-        if (!b){
-            buscarItem();
-        }
-    }
+
 
     private void buscarItem() {
         Object[] b = servicioMotorizado.Buscar_Motorizado(getActivity(), idMotorizado.getEditText().getText().toString());
@@ -103,8 +115,7 @@ public class persistencia_empleadosFragment extends Fragment implements View.OnF
             telefonoMotorizado.getEditText().setText(b[4].toString());
             usuarioMotorizado.getEditText().setText(b[6].toString());
             contrasenaMotorizado.getEditText().setText(b[7].toString());
-
-
+            EliminarMotorizado.setEnabled(true);
 
 
 /*
@@ -123,6 +134,11 @@ public class persistencia_empleadosFragment extends Fragment implements View.OnF
                     .setTitleText("Empleado Encontrado")
                     .show();
 
+        }else{
+            limpiarCaja1(false);
+            Log.i("INFOX", "NO esta");
+            EliminarMotorizado.setEnabled(false);
+
         }
     }
 
@@ -140,6 +156,13 @@ public class persistencia_empleadosFragment extends Fragment implements View.OnF
             usuarioMotorizado.getEditText().setText("");
             contrasenaMotorizado.getEditText().setText("");
 
+        }
+    }
+    private void limpiarCaja1(boolean limpiarCodigo){
+        if(limpiarCodigo){
+
+        }else{
+            idMotorizado.getEditText().setText("");
         }
     }
 

@@ -17,4 +17,6 @@ public interface DaoMotorizado {
 
     public Motorizado BuscarMotorizado(Context context, String  id);
 
+    String eliminarEmpleado(Context context, String cod);
+
 }

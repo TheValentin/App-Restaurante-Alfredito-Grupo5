@@ -79,7 +79,6 @@ ServicioProducto servicioProducto;
             @Override
             public void onClick(View view) {
                 solicitarPermisos();
-
                 Intent intent= new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(intent,REQ_CAMERA);  //activando camara pero
 

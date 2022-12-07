@@ -7,32 +7,49 @@
     tools:context=".Actividades.uiMotorizado.Inicio_motorizado.inicio_motorizadoFragment">
 
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/Imagen_Empleado_Inicio"
         android:layout_width="125dp"
         android:layout_height="125dp"
         android:layout_marginTop="16dp"
         android:src="@drawable/ic_baseline_account_circle_24"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.374"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button16"
+        android:id="@+id/BtnEditarfoto_iniciiEmpleado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="24dp"
         android:backgroundTint="#FFFFFF"
         android:text="Editar Foto"
         android:textColor="#000000"
-        app:layout_constraintStart_toEndOf="@+id/imageView8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Imagen_Empleado_Inicio"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/BtnGaleriaInicio_empleado"
+        android:layout_width="123dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#FFFFFF"
+        android:text="Galeria"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintStart_toEndOf="@+id/Imagen_Empleado_Inicio"
+        app:layout_constraintTop_toBottomOf="@+id/BtnEditarfoto_iniciiEmpleado"
+        app:layout_constraintVertical_bias="1.0" />
+
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="450dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8">
+        app:layout_constraintTop_toBottomOf="@+id/Imagen_Empleado_Inicio">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -41,7 +58,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/txtIdMotorizado_inicioEmpleado"
@@ -129,7 +146,6 @@
                         android:layout_height="wrap_content"
                         android:hint="Contraseña" />
                 </com.google.android.material.textfield.TextInputLayout>
-
 
 
                 <Button

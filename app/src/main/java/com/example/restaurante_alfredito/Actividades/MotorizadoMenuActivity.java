@@ -1,10 +1,14 @@
 package com.example.restaurante_alfredito.Actividades;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.ImageView;
 
 
 import com.example.restaurante_alfredito.R;
@@ -24,6 +28,7 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.ByteArrayInputStream;
 
 
 public class MotorizadoMenuActivity extends AppCompatActivity {
@@ -32,7 +37,7 @@ public class MotorizadoMenuActivity extends AppCompatActivity {
     private ActivityMotorizadoBinding binding;
 
     private TextInputLayout txtIDmotrizado ,txtnombre,txtapellido,txtdni,txttelefono,txtusuario,txtcontrasena;
-    private byte foto;
+    private ImageView foto;
 
     ServicioMotorizado serv_m ;
 
@@ -71,6 +76,7 @@ public class MotorizadoMenuActivity extends AppCompatActivity {
         txtusuario=(TextInputLayout) findViewById(R.id.txtusuario_inicioEmpleado);
         txtcontrasena=(TextInputLayout) findViewById(R.id.txtContrasena_inicioEmpleado);
 
+        foto=(ImageView) findViewById(R.id.Imagen_Empleado_Inicio);
 
 
         serv_m = new ServicioMotorizadoImp();
@@ -86,6 +92,18 @@ public class MotorizadoMenuActivity extends AppCompatActivity {
             txtapellido.getEditText().setText(""+fil_M[2]);
             txtdni.getEditText().setText(""+fil_M[3]);
             txttelefono.getEditText().setText(""+fil_M[4]);
+
+            Log.i("infox", ""+fil_M[5]);
+            byte[] blob = (byte[]) fil_M[5];
+            ByteArrayInputStream bais= null;
+            Bitmap bitmap= null;
+            if (blob !=null){
+                bais = new ByteArrayInputStream(blob);
+                bitmap = BitmapFactory.decodeStream(bais);
+            }
+
+             foto.setImageBitmap(bitmap);
+
             txtusuario.getEditText().setText(""+fil_M[6]);
             txtcontrasena.getEditText().setText(""+fil_M[7]);
 

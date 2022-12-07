@@ -92,7 +92,7 @@ public class ServicioMotorizadoImp implements  ServicioMotorizado{
 
         Motorizado m = new DaoMotorizadoImp().BuscarMotorizado(context, cod);
         if (m != null) {
-            Object[] fil = new Object[7];
+            Object[] fil = new Object[8];
             fil[0] = m.getIdmotorizado();
             fil[1] = m.getNombre();
             fil[2] = m.getApellido();
@@ -106,5 +106,16 @@ public class ServicioMotorizadoImp implements  ServicioMotorizado{
 
         return null;
     }
+
+    @Override
+    public String eliminarEmpleado(Context context, String cod) {
+
+        String msg=new DaoMotorizadoImp().eliminarEmpleado(context,cod);
+        if(msg==null){
+            msg="Empleado Eliminado";
+        }
+        return msg;
+    }
+
 
 }

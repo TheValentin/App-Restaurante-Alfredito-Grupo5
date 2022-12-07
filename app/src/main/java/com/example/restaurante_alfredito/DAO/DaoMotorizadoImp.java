@@ -159,13 +159,29 @@ public class DaoMotorizadoImp implements  DaoMotorizado  {
 
         }  catch (SQLException ex){
 
+        }
+        return m;
+    }
+
+    @Override
+    public String eliminarEmpleado(Context context, String cod) {
+        String mensaje = null;
+        try{
+            db = new ConectaDB(context, GlobalesApp.BDD,null,GlobalesApp.VERSION).getWritableDatabase();
+            String codigo= cod;
+            String parametro[]={""+codigo};
+            long ctos = db.delete(GlobalesApp.TBL_MOTORIZADO,"idmotorizado=?",parametro);
+            if (ctos == 0) {
+                mensaje = "cero filas insertadas";
+            }
+
+            db.close();
+        } catch (SQLException ex){
+
 
 
         }
-
-
-
-        return m;
+        return mensaje;
     }
 
 
