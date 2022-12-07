@@ -41,12 +41,12 @@ public class CarritoFragment extends Fragment {
         listView2= (ListView)view.findViewById(R.id.listapedidoscarrito);
 
         ArrayList<Productos> arrayList2 = new ArrayList<>();
-
+/*
         arrayList2.add(new Productos(R.drawable.arroz_chaufa,"arroz_chaufa","15"));
         arrayList2.add(new Productos(R.drawable.arroz_con_pollo,"arroz_con_pollo","15"));
         arrayList2.add(new Productos(R.drawable.causa,"causa","15"));
         arrayList2.add(new Productos(R.drawable.ceviche,"ceviche","15"));
-
+*/
         AdapterCarrito pppp2 = new AdapterCarrito(getActivity(), R.layout.item_carrito,arrayList2);
 
         listView2.setAdapter(pppp2);

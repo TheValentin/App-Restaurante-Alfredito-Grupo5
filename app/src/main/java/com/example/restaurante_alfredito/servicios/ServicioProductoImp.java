@@ -6,9 +6,35 @@ import com.example.restaurante_alfredito.DAO.DaoProducto;
 import com.example.restaurante_alfredito.DAO.DaoProductoImp;
 import com.example.restaurante_alfredito.dto.Producto;
 
+import java.util.ArrayList;
+
 public class ServicioProductoImp implements  ServicioProducto{
 
 
+    @Override
+    public ArrayList listarProducto(Context context) {
+
+        ArrayList  lis=new DaoProductoImp().ListarProducto(context);
+        if (lis!=null) {
+            ArrayList lista=new ArrayList();
+            for (int i = 0; i <lis.size(); i++) {
+                Producto  p=(Producto )lis.get(i);
+                Object[] fil = new Object[6];
+                fil[0] = p.getIdproducto();
+                fil[1] = p.getNombre();
+                fil[2] = p.getStock();
+                fil[3] = p.getCategoria();
+                fil[4] = p.getPrecio();
+                fil[5] = p.getImagen();
+                    lista.add(fil);
+
+            }
+            return lista;
+        }
+
+        return null;
+
+    }
 
     @Override
     public String grabarProducto(Context context,String idproducto, String nombre, int stock, String categoria, double precio, byte[] imagen) {

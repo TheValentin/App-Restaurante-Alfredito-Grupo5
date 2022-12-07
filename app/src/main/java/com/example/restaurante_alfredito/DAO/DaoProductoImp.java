@@ -6,7 +6,9 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.restaurante_alfredito.dto.Administrador;
 import com.example.restaurante_alfredito.dto.Producto;
+import com.example.restaurante_alfredito.dto.Productos;
 import com.example.restaurante_alfredito.servicios.ConectaDB;
 import com.example.restaurante_alfredito.utilidades.GlobalesApp;
 
@@ -19,7 +21,42 @@ public class DaoProductoImp implements DaoProducto{
 
     @Override
     public ArrayList<Producto> ListarProducto(Context context) {
-        return null;
+        ArrayList<Producto> list  =  new ArrayList<>();
+        Producto M= null;
+        db = new ConectaDB(context, GlobalesApp.BDD,null,GlobalesApp.VERSION).getWritableDatabase();
+
+        String cadSQL="select *  from producto";
+
+        Cursor c =db.rawQuery(cadSQL,null);
+        StringBuilder sb = new StringBuilder();
+        if (c!=null){
+            if (c.moveToFirst()){
+                do{
+                    M = new Producto ();
+                    M.setIdproducto(c.getString(0));
+                    M.setNombre(c.getString(1));
+                    M.setStock(c.getInt(2));
+                    M.setCategoria(c.getString(3));
+                    M.setPrecio(c.getDouble(4));
+                    M.setImagen(c.getBlob(5));
+                    list.add(M);
+                }while (c.moveToNext());
+
+            }
+            c.close();
+
+
+
+
+        }else {
+
+        }
+
+        db.close();
+        return list;
+
+
+
     }
 
     @Override
