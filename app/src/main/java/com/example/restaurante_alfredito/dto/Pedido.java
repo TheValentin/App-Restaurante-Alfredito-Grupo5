@@ -1,5 +1,6 @@
 package com.example.restaurante_alfredito.dto;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Pedido {
@@ -8,10 +9,18 @@ public class Pedido {
     private String estado;
     private double total;
 
+    private String fkclientes;
+    private String fkmotorizado;
+
+
+    ArrayList Cesta=new ArrayList();
+
     public Pedido() {
+
     }
 
     public Pedido(String idpedido, Date fecha, String estado, double total) {
+
         this.idpedido = idpedido;
         this.fecha = fecha;
         this.estado = estado;
@@ -49,4 +58,53 @@ public class Pedido {
     public void setTotal(double total) {
         this.total = total;
     }
-}
+
+    public String getFkclientes() {
+        return fkclientes;
+    }
+
+    public void setFkclientes(String fkclientes) {
+        this.fkclientes = fkclientes;
+    }
+
+    public String getFkmotorizado() {
+        return fkmotorizado;
+    }
+
+    public void setFkmotorizado(String fkmotorizado) {
+        this.fkmotorizado = fkmotorizado;
+    }
+
+    public ArrayList getCesta() {
+        return Cesta;
+    }
+
+    public void setCesta(ArrayList cesta) {
+        Cesta = cesta;
+    }
+
+    public void agregar(Producto pro, int cantidad){
+
+Detalle_pedido detalle_pedido= new Detalle_pedido(pro,cantidad);
+
+        Cesta.add(detalle_pedido);
+
+
+    }
+    public void quitar(String num){
+
+        for (int i = 0; i < Cesta.size(); i++) {
+            Detalle_pedido lin=(Detalle_pedido)Cesta.get(i);
+            if (lin.getProducto().getIdproducto().equals(num)) {
+
+                Cesta.remove(i);
+
+            }
+        }
+    }
+
+
+
+    }
+
+

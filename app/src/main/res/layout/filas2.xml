@@ -9,15 +9,15 @@
 
 
     <ImageView
-        android:id="@+id/imagen"
+        android:id="@+id/imagen5"
         android:layout_width="151dp"
         android:layout_height="129dp"
-        android:layout_below="@+id/txtfecha"
+        android:layout_below="@+id/t"
         android:layout_marginTop="-6dp"
         android:src="@color/black" />
 
     <TextView
-        android:id="@+id/txtfecha"
+        android:id="@+id/t"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:shadowColor="@color/black"
@@ -28,29 +28,29 @@
         android:id="@+id/descripcion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imagen"
+        android:layout_below="@+id/imagen5"
         android:layout_marginStart="54dp"
         android:layout_marginTop="20dp"
 
-        android:layout_toEndOf="@+id/button7"
+        android:layout_toEndOf="@+id/button755555555555555"
         android:text="TextView" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/button755555555555555"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imagen"
+        android:layout_below="@+id/imagen5"
         android:layout_marginStart="14dp"
         android:layout_marginTop="9dp"
-        android:layout_toEndOf="@+id/button8"
+        android:layout_toEndOf="@+id/fil_Mas_detalle"
         android:backgroundTint="@color/red"
         android:text="Agregar" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/fil_Mas_detalle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imagen"
+        android:layout_below="@+id/imagen5"
         android:layout_marginTop="9dp"
         android:backgroundTint="@color/gris"
         android:text="Mas detalle" />

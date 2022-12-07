@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/gris">
+
+    <TextView
+        android:id="@+id/t"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:shadowColor="@color/black"
+        android:text="."
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/txt_detalle_platillo"
+        android:layout_width="291dp"
+        android:layout_height="173dp"
+        android:layout_below="@+id/imageView6"
+        android:layout_alignStart="@+id/imageView6"
+        android:layout_alignEnd="@+id/imageView6"
+        android:layout_marginStart="-59dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="-80dp"
+        android:text="prueba"
+        android:textColor="@color/white" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+
+        android:layout_width="151dp"
+        android:layout_height="129dp"
+        android:layout_below="@+id/t"
+        android:layout_alignEnd="@+id/t"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="-273dp"
+        android:src="@color/black" />
+
+    tools:srcCompat="@tools:sample/avatars" />
+
+</RelativeLayout>

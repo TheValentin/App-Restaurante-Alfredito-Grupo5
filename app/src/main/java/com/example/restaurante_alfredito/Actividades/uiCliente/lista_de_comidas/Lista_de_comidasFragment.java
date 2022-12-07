@@ -39,7 +39,7 @@ public class Lista_de_comidasFragment extends Fragment {
 
         for (int i = 0; i < servicioProducto5.listarProducto(getContext()).size(); i++) {
          Object[] a= (Object[]) servicioProducto5.listarProducto(getContext()).get(i);
-            arrayList2.add(new Productos((byte[]) a[5],a[1].toString(),a[4].toString()));
+            arrayList2.add(new Productos((byte[]) a[5],a[1].toString(),a[4].toString(),a[3].toString()));
         }
 /*
         arrayList2.add(new Productos(R.drawable.arroz_chaufa,"arroz_chaufa","15"));

@@ -7,6 +7,7 @@ public class Productos {
     byte[] imagen;
     String nombre;
     String descrip;
+    String descrip_det;
 /*
     public Productos(int imagen, String nombre, String descrip) {
         this.imagen = imagen;
@@ -26,10 +27,11 @@ public class Productos {
 
 */
 
-    public Productos(byte[] imagen, String nombre, String descrip) {
+    public Productos(byte[] imagen, String nombre, String descrip,String descrip_det) {
         this.imagen = imagen;
         this.nombre = nombre;
         this.descrip = descrip;
+        this.descrip_det=descrip_det;
     }
 
     public byte[] getImagen() {
@@ -57,4 +59,11 @@ public class Productos {
     }
 
 
+    public String getDescrip_det() {
+        return descrip_det;
+    }
+
+    public void setDescrip_det(String descrip_det) {
+        this.descrip_det = descrip_det;
+    }
 }

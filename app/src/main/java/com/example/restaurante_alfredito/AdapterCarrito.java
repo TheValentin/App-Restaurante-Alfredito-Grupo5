@@ -34,7 +34,7 @@ private int mResourse;
         convertView=layoutInflater.inflate(mResourse,parent,false);
 
 
-        ImageView imageView=  ( ImageView)convertView.findViewById(R.id.imagen);
+        ImageView imageView=  ( ImageView)convertView.findViewById(R.id.imagen5);
         TextView txtnombr = (TextView )  convertView.findViewById(R.id.txtname);
         TextView precio =  (TextView ) convertView.findViewById(R.id.txtprecio);
 /*

@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -34,7 +33,7 @@ private int mResourse;
         convertView=layoutInflater.inflate(mResourse,parent,false);
 
 
-        TextView txtfecha = (TextView )  convertView.findViewById(R.id.txtfecha);
+        TextView txtfecha = (TextView )  convertView.findViewById(R.id.t);
         TextView txtcodigo =  (TextView ) convertView.findViewById(R.id.txtcodigo);
         TextView txtestado =  (TextView ) convertView.findViewById(R.id.txtestado);
         TextView txtcliente =  (TextView ) convertView.findViewById(R.id.txtcliente);
