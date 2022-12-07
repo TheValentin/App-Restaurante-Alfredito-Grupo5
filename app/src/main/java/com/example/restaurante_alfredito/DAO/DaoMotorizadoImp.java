@@ -3,9 +3,12 @@ package com.example.restaurante_alfredito.DAO;
 import static androidx.test.InstrumentationRegistry.getContext;
 
 import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.example.restaurante_alfredito.dto.Motorizado;
 import com.example.restaurante_alfredito.servicios.ConectaDB;
@@ -52,4 +55,38 @@ public class DaoMotorizadoImp implements  DaoMotorizado  {
         db.close();
         return list;
     }
+
+    @Override
+    public String CrearRegistroEmpleado(Context context, Motorizado motorizado) {
+
+        String mensaje = null;
+        try {
+            db = new ConectaDB(context, GlobalesApp.BDD,null,GlobalesApp.VERSION).getWritableDatabase();
+
+            ContentValues registro =  new ContentValues();
+
+            registro.put("idmotorizado",motorizado.getIdmotorizado());
+            registro.put("nombre",motorizado.getNombre());
+            registro.put("apellido",motorizado.getApellido());
+            registro.put("dni",motorizado.getDni());
+            registro.put("telefono",motorizado.getTelefono());
+            registro.put("foto ",motorizado.getFoto());
+            registro.put("usuario ",motorizado.getUsuario());
+            registro.put("contrasena ",motorizado.getContrasena());
+
+            long ctos =db.insert(GlobalesApp.TBL_MOTORIZADO,null,registro);
+            if (ctos == 0) {
+                mensaje = "cero Empleados insertadas";
+            }
+
+
+            db.close();
+        }  catch (SQLException ex){
+
+
+        }
+        return mensaje;
+    }
+
+
 }

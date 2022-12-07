@@ -11,4 +11,6 @@ public interface DaoMotorizado {
 
     ArrayList<Motorizado> ListarMotorizado(Context context);
 
+    String CrearRegistroEmpleado(Context context, Motorizado motorizado);
+
 }

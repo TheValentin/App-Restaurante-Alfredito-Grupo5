@@ -4,7 +4,9 @@ import android.content.Context;
 
 import com.example.restaurante_alfredito.DAO.DaoMotorizado;
 import com.example.restaurante_alfredito.DAO.DaoMotorizadoImp;
+import com.example.restaurante_alfredito.DAO.DaoProductoImp;
 import com.example.restaurante_alfredito.dto.Motorizado;
+import com.example.restaurante_alfredito.dto.Producto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,4 +37,27 @@ public class ServicioMotorizadoImp implements  ServicioMotorizado{
         }
         return null;
     }
+
+    @Override
+    public String RegistrarEmpleado(Context context, String idEmpleado, String nombre, String apellido, String dni, String telefono, byte[] imagen, String usuario, String contrasena) {
+
+        Motorizado m=new Motorizado();
+
+        m.setIdmotorizado(idEmpleado);
+        m.setNombre(nombre);
+        m.setApellido(apellido);
+        m.setDni(dni);
+        m.setTelefono(telefono);
+        m.setFoto(imagen);
+        m.setUsuario(usuario);
+        m.setContrasena(contrasena);
+
+
+        String msg=new DaoMotorizadoImp().CrearRegistroEmpleado(context,m);
+        if (msg==null) {
+            msg="Empleado Agregado";
+        }
+        return msg;
+    }
+
 }
