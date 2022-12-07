@@ -1,5 +1,7 @@
 package com.example.restaurante_alfredito.Actividades.uiAdministrador.Persistencia_empleados;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,9 +19,11 @@ import com.example.restaurante_alfredito.servicios.ServicioMotorizado;
 import com.example.restaurante_alfredito.servicios.ServicioMotorizadoImp;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.io.ByteArrayInputStream;
+
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
-public class persistencia_empleadosFragment extends Fragment {
+public class persistencia_empleadosFragment extends Fragment implements View.OnFocusChangeListener {
 
 
 
@@ -79,18 +83,49 @@ public class persistencia_empleadosFragment extends Fragment {
             }
         });
 
-        BuscarEmpleado.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-
-
-
-
     }
+
+    @Override
+    public void onFocusChange(View view, boolean b) {
+        if (!b){
+            buscarItem();
+        }
+    }
+
+    private void buscarItem() {
+        Object[] b = servicioMotorizado.Buscar_Motorizado(getActivity(), idMotorizado.getEditText().getText().toString());
+
+        if (b != null) {
+
+            nombreMotorizado.getEditText().setText(b[1].toString());
+            apellidoMotorizado.getEditText().setText(b[2].toString());
+            dniMotorizado.getEditText().setText(b[3].toString());
+            telefonoMotorizado.getEditText().setText(b[4].toString());
+            usuarioMotorizado.getEditText().setText(b[6].toString());
+            contrasenaMotorizado.getEditText().setText(b[7].toString());
+
+
+
+
+/*
+            byte[] blob = (byte[]) b[5];
+            ByteArrayInputStream bais= null;
+            Bitmap bitmap= null;
+            if (blob !=null){
+                bais = new ByteArrayInputStream(blob);
+                bitmap = BitmapFactory.decodeStream(bais);
+            }
+
+            foto_producto.setImageBitmap(bitmap);
+*/
+
+            new SweetAlertDialog(getActivity(), SweetAlertDialog.SUCCESS_TYPE)
+                    .setTitleText("Empleado Encontrado")
+                    .show();
+
+        }
+    }
+
 
     private void limpiarCaja(boolean limpiarCodigo){
         if(limpiarCodigo){

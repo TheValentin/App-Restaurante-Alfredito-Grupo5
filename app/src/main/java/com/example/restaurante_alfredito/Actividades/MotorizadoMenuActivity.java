@@ -10,8 +10,11 @@ import android.view.Menu;
 import com.example.restaurante_alfredito.R;
 import com.example.restaurante_alfredito.antivity_iniciar1;
 import com.example.restaurante_alfredito.databinding.ActivityMotorizadoBinding;
+import com.example.restaurante_alfredito.servicios.ServicioMotorizado;
+import com.example.restaurante_alfredito.servicios.ServicioMotorizadoImp;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.textfield.TextInputLayout;
 
 import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
@@ -27,6 +30,11 @@ public class MotorizadoMenuActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMotorizadoBinding binding;
+
+    private TextInputLayout txtIDmotrizado ,txtnombre,txtapellido,txtdni,txttelefono,txtusuario,txtcontrasena;
+    private byte foto;
+
+    ServicioMotorizado serv_m ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +62,39 @@ public class MotorizadoMenuActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_motorizado);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        txtIDmotrizado=(TextInputLayout) findViewById(R.id.txtIdMotorizado_inicioEmpleado);
+        txtnombre=(TextInputLayout) findViewById(R.id.txtnombre_inicioEmpleado);
+        txtapellido=(TextInputLayout) findViewById(R.id.txtApellido_inicioEmpleado);
+        txtdni=(TextInputLayout) findViewById(R.id.txtDni_inicioEmpleado);
+        txttelefono=(TextInputLayout) findViewById(R.id.txtTelefono_inicioEmpleado);
+        txtusuario=(TextInputLayout) findViewById(R.id.txtusuario_inicioEmpleado);
+        txtcontrasena=(TextInputLayout) findViewById(R.id.txtContrasena_inicioEmpleado);
+
+
+
+        serv_m = new ServicioMotorizadoImp();
+        Bundle bundle = getIntent().getExtras();
+
+        if (bundle!=null){
+            String usuarioMotorizado= bundle.getString("usuarioMotorizado", "0");
+            String contrasenaMotorizado= bundle.getString("contrasenaMotorizado", "0");
+
+            Object[] fil_M = serv_m .validarMotorizado(this,usuarioMotorizado,contrasenaMotorizado);
+            txtIDmotrizado.getEditText().setText(""+fil_M[0]);
+            txtnombre.getEditText().setText(""+fil_M[1]);
+            txtapellido.getEditText().setText(""+fil_M[2]);
+            txtdni.getEditText().setText(""+fil_M[3]);
+            txttelefono.getEditText().setText(""+fil_M[4]);
+            txtusuario.getEditText().setText(""+fil_M[6]);
+            txtcontrasena.getEditText().setText(""+fil_M[7]);
+
+        }
+
+
+
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -58,7 +58,14 @@ public class antivity_iniciar1 extends AppCompatActivity {
         if(fil_M!= null || fil_A!= null || fil_C!= null){
 
                if (fil_M!=null){
+
                    Intent intent = new Intent(this, MotorizadoMenuActivity.class);
+
+
+                   Bundle bundle = new Bundle();
+                   bundle.putString("usuarioMotorizado",""+fil_M[6]);
+                   bundle.putString("contrasenaMotorizado",""+fil_M[7]);
+                   intent.putExtras(bundle);
                    startActivity(intent);
                          }
                if (fil_A!=null){

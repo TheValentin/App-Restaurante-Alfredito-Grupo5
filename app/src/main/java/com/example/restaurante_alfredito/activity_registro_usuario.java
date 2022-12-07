@@ -2,6 +2,7 @@ package com.example.restaurante_alfredito;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
@@ -90,11 +91,14 @@ public class activity_registro_usuario extends AppCompatActivity {
 
            // String Contraseñaincriptada=encriptar(password,usuario);
 
-        servicioClientes.RegistrarUsuariosCLientes(activity_registro_usuario.this,txtnombre.getEditText().getText().toString(),txtapellido.getEditText().getText().toString(),txttelefono.getEditText().getText().toString(),txtdni.getEditText().getText().toString(),txtcorreo.getEditText().getText().toString(),txtusuario.getEditText().getText().toString(),txtcontrasena.getEditText().getText().toString(),txtdireccion.getEditText().getText().toString(),txtidUsuario.getEditText().getText().toString() );
+        String a=servicioClientes.RegistrarUsuariosCLientes(activity_registro_usuario.this,txtnombre.getEditText().getText().toString(),txtapellido.getEditText().getText().toString(),txttelefono.getEditText().getText().toString(),txtdni.getEditText().getText().toString(),txtcorreo.getEditText().getText().toString(),txtusuario.getEditText().getText().toString(),txtcontrasena.getEditText().getText().toString(),txtdireccion.getEditText().getText().toString(),txtidUsuario.getEditText().getText().toString() );
 
+        Log.i("infoxxx",""+a);
             new SweetAlertDialog(this,SweetAlertDialog.SUCCESS_TYPE)
                     .setTitleText("Registro guardado")
                     .show();
+            Intent intent = new Intent(this, antivity_iniciar1.class);
+            startActivity(intent);
 
         }else {
            new SweetAlertDialog(this,SweetAlertDialog.ERROR_TYPE)
