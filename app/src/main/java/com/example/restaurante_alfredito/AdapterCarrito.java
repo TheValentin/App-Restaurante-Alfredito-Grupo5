@@ -37,8 +37,10 @@ private int mResourse;
         ImageView imageView=  ( ImageView)convertView.findViewById(R.id.imagen);
         TextView txtnombr = (TextView )  convertView.findViewById(R.id.txtname);
         TextView precio =  (TextView ) convertView.findViewById(R.id.txtprecio);
-
+/*
         imageView.setImageResource(getItem(position).getImagen());
+
+ */
         txtnombr.setText(getItem(position).getNombre());
         precio.setText("S/15");
 
