@@ -14,6 +14,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.restaurante_alfredito.Actividades.AdministradorMenuActivity;
+import com.example.restaurante_alfredito.Actividades.ClienteMenuActivity;
+import com.example.restaurante_alfredito.Actividades.uiCliente.lista_de_comidas.Lista_de_comidasFragment;
 import com.example.restaurante_alfredito.AdapterCarrito;
 import com.example.restaurante_alfredito.AdapterCatalago;
 import com.example.restaurante_alfredito.PasarelaPagos;
@@ -26,7 +28,14 @@ import java.util.ArrayList;
 public class CarritoFragment extends Fragment {
 
     public Button BtnPasarela;
-    ListView listView2;
+    public static ListView listView2;
+
+
+
+
+public static  AdapterCarrito pppp2;
+
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -37,17 +46,25 @@ public class CarritoFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ClienteMenuActivity.arrayList_cesta_2.clear();
 
         listView2= (ListView)view.findViewById(R.id.listapedidoscarrito);
 
-        ArrayList<Productos> arrayList2 = new ArrayList<>();
+        for (int i = 0; i < ClienteMenuActivity.arrayList2_CESTA.size(); i++) {
+            Object[] a= (Object[]) ClienteMenuActivity.arrayList2_CESTA.get(i);
+
+
+            ClienteMenuActivity.arrayList_cesta_2 .add(new Productos( (byte[])a[2], a[0].toString() ,a[1].toString(),a[3].toString(),a[4].toString()));
+        }
+
+
 /*
         arrayList2.add(new Productos(R.drawable.arroz_chaufa,"arroz_chaufa","15"));
         arrayList2.add(new Productos(R.drawable.arroz_con_pollo,"arroz_con_pollo","15"));
         arrayList2.add(new Productos(R.drawable.causa,"causa","15"));
         arrayList2.add(new Productos(R.drawable.ceviche,"ceviche","15"));
 */
-        AdapterCarrito pppp2 = new AdapterCarrito(getActivity(), R.layout.item_carrito,arrayList2);
+        pppp2 = new AdapterCarrito(getActivity(), R.layout.item_carrito, ClienteMenuActivity.arrayList_cesta_2 );
 
         listView2.setAdapter(pppp2);
 

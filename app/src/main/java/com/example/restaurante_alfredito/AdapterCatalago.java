@@ -7,15 +7,20 @@ import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
-import android.view.LayoutInflater;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.example.restaurante_alfredito.Actividades.ClienteMenuActivity;
+import com.example.restaurante_alfredito.Actividades.uiCliente.lista_de_comidas.Lista_de_comidasFragment;
+import com.example.restaurante_alfredito.servicios.ServicioPedido;
+import com.example.restaurante_alfredito.servicios.ServicioPedidoImp;
 
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
@@ -24,6 +29,10 @@ public class AdapterCatalago extends ArrayAdapter<Productos> {
 
 private Context mContext;
 private int mResourse;
+
+
+
+
 
 
 
@@ -43,10 +52,12 @@ private int mResourse;
         convertView=layoutInflater.inflate(mResourse,parent,false);
 
 
-        ImageView imageView=  ( ImageView)convertView.findViewById(R.id.imagen5);
+        ImageView imageView=  ( ImageView)convertView.findViewById(R.id.imagen555);
         TextView txtnombr = (TextView )  convertView.findViewById(R.id.t);
-        TextView descrp =  (TextView ) convertView.findViewById(R.id.descripcion);
+        Spinner descrp =  (Spinner  ) convertView.findViewById(R.id.lista_cantidad_productos);
 Button button_detalle  =(Button) convertView.findViewById(R.id.fil_Mas_detalle);
+        Button button_agregar  =(Button) convertView.findViewById(R.id.fil_Mas_agregar);
+
 
         byte[] blob = getItem(position).getImagen();
         ByteArrayInputStream bais= null;
@@ -65,7 +76,52 @@ Button button_detalle  =(Button) convertView.findViewById(R.id.fil_Mas_detalle);
 
         imageView.setImageBitmap(bitmap);
         txtnombr.setText(getItem(position).getNombre());
-        descrp.setText(getItem(position).getDescrip());
+
+        //SPINNER
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext() ,android.R.layout.simple_spinner_item,getItem(position).opciones);
+        descrp.setAdapter(arrayAdapter);
+
+
+
+        descrp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                if (adapterView.getItemAtPosition(i).equals("1")){
+
+                    String [] opciones1 = {"1","2"};
+                    Lista_de_comidasFragment.arrayList33 .get(position).setOpciones(opciones1 );
+
+
+                }
+                if (adapterView.getItemAtPosition(i).equals("No Asistio")){
+
+                    String [] opciones1 = {"2","1",};
+                    Lista_de_comidasFragment.arrayList33 .get(position).setOpciones(opciones1 );
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+
+
+
+        button_agregar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Productos a =(Productos) Lista_de_comidasFragment.arrayList33.get(position);
+
+Object []op=a.getOpciones();
+
+                ClienteMenuActivity.arrayList2_CESTA = ClienteMenuActivity.servp.agregarPedido(getContext(),a.getNombre(),op[0].toString());
+
+            }
+        });
+
 
 ///Vetana emergente
         AlertDialog dialog_buscar ;

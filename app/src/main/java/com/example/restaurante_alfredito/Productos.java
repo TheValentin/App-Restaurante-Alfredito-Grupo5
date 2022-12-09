@@ -8,6 +8,11 @@ public class Productos {
     String nombre;
     String descrip;
     String descrip_det;
+
+    String importe ;
+
+    String [] opciones;
+
 /*
     public Productos(int imagen, String nombre, String descrip) {
         this.imagen = imagen;
@@ -27,11 +32,20 @@ public class Productos {
 
 */
 
-    public Productos(byte[] imagen, String nombre, String descrip,String descrip_det) {
+    public Productos(byte[] imagen, String nombre, String descrip,String descrip_det,String [] opciones) {
         this.imagen = imagen;
         this.nombre = nombre;
         this.descrip = descrip;
         this.descrip_det=descrip_det;
+        this.opciones=opciones;
+    }
+    public Productos(byte[] imagen, String nombre, String descrip,String descrip_det,String importe) {
+        this.imagen = imagen;
+        this.nombre = nombre;
+        this.descrip = descrip;
+        this.descrip_det=descrip_det;
+        this.importe=importe;
+
     }
 
     public byte[] getImagen() {
@@ -65,5 +79,21 @@ public class Productos {
 
     public void setDescrip_det(String descrip_det) {
         this.descrip_det = descrip_det;
+    }
+
+    public String getImporte() {
+        return importe;
+    }
+
+    public void setImporte(String importe) {
+        this.importe = importe;
+    }
+
+    public String[] getOpciones() {
+        return opciones;
+    }
+
+    public void setOpciones(String[] opciones) {
+        this.opciones = opciones;
     }
 }

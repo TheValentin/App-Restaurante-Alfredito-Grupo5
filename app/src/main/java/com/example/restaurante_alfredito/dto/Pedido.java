@@ -13,10 +13,10 @@ public class Pedido {
     private String fkmotorizado;
 
 
-    ArrayList Cesta=new ArrayList();
+    ArrayList Cesta;
 
     public Pedido() {
-
+        Cesta=new ArrayList();
     }
 
     public Pedido(String idpedido, Date fecha, String estado, double total) {
@@ -95,7 +95,7 @@ Detalle_pedido detalle_pedido= new Detalle_pedido(pro,cantidad);
 
         for (int i = 0; i < Cesta.size(); i++) {
             Detalle_pedido lin=(Detalle_pedido)Cesta.get(i);
-            if (lin.getProducto().getIdproducto().equals(num)) {
+            if (lin.getProducto().getIdproducto().equals(num) || lin.getProducto().getNombre().equals(num)) {
 
                 Cesta.remove(i);
 

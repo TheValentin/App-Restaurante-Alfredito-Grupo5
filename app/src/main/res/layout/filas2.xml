@@ -4,12 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:padding="16dp">
 
 
     <ImageView
-        android:id="@+id/imagen5"
+        android:id="@+id/imagen555"
         android:layout_width="151dp"
         android:layout_height="129dp"
         android:layout_below="@+id/t"
@@ -24,22 +24,11 @@
         android:text="TextView"
         android:textColor="@color/black" />
 
-    <TextView
-        android:id="@+id/descripcion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imagen5"
-        android:layout_marginStart="54dp"
-        android:layout_marginTop="20dp"
-
-        android:layout_toEndOf="@+id/button755555555555555"
-        android:text="TextView" />
-
     <Button
-        android:id="@+id/button755555555555555"
+        android:id="@+id/fil_Mas_agregar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imagen5"
+        android:layout_below="@+id/imagen555"
         android:layout_marginStart="14dp"
         android:layout_marginTop="9dp"
         android:layout_toEndOf="@+id/fil_Mas_detalle"
@@ -50,9 +39,18 @@
         android:id="@+id/fil_Mas_detalle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imagen5"
+        android:layout_below="@+id/imagen555"
         android:layout_marginTop="9dp"
         android:backgroundTint="@color/gris"
         android:text="Mas detalle" />
+
+    <Spinner
+        android:id="@+id/lista_cantidad_productos"
+        android:layout_width="113dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imagen555"
+        android:layout_marginStart="61dp"
+        android:layout_marginTop="46dp"
+        android:layout_toEndOf="@+id/imagen555" />
 
 </RelativeLayout>

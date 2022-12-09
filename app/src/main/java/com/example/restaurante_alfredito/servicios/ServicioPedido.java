@@ -8,5 +8,5 @@ public interface ServicioPedido {
 
     ArrayList agregarPedido(Context context, String num, String cantidad);
 
-    ArrayList quitarPedido( String num);
+    ArrayList quitarPedido(String num);
 }

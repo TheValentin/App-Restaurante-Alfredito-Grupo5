@@ -33,7 +33,7 @@ private int mResourse;
         convertView=layoutInflater.inflate(mResourse,parent,false);
 
 
-        TextView txtfecha = (TextView )  convertView.findViewById(R.id.txtname);
+        TextView txtfecha = (TextView )  convertView.findViewById(R.id.txt_nombre_cesta);
         TextView txtcodigo =  (TextView ) convertView.findViewById(R.id.txtcodigo);
         TextView txtestado =  (TextView ) convertView.findViewById(R.id.txtestado);
 

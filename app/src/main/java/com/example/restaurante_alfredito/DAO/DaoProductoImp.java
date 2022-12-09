@@ -6,9 +6,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.restaurante_alfredito.dto.Administrador;
 import com.example.restaurante_alfredito.dto.Producto;
-import com.example.restaurante_alfredito.dto.Productos;
 import com.example.restaurante_alfredito.servicios.ConectaDB;
 import com.example.restaurante_alfredito.utilidades.GlobalesApp;
 
@@ -94,10 +92,10 @@ public class DaoProductoImp implements DaoProducto{
         Producto p = new  Producto();
         try {
         db = new ConectaDB(context, GlobalesApp.BDD,null,GlobalesApp.VERSION).getReadableDatabase();
-        String cadSQL="select *  from producto where idproducto = ?";
+        String cadSQL="select *  from producto where idproducto = ? or nombre=? ";
 
         String codigo= id;
-        String parametro[]={""+codigo};
+        String parametro[]={""+codigo,""+codigo};
         Cursor c = db.rawQuery(cadSQL,parametro);
 
         if (c!=null){

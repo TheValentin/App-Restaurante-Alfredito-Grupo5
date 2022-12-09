@@ -9,11 +9,14 @@ import android.widget.Button;
 
 
 import com.example.restaurante_alfredito.PasarelaPagos;
+import com.example.restaurante_alfredito.Productos;
 import com.example.restaurante_alfredito.R;
 import com.example.restaurante_alfredito.antivity_iniciar1;
 import com.example.restaurante_alfredito.databinding.ActivityClienteMenuBinding;
 import com.example.restaurante_alfredito.servicios.ServicioClientes;
 import com.example.restaurante_alfredito.servicios.ServicioClientesImp;
+import com.example.restaurante_alfredito.servicios.ServicioPedido;
+import com.example.restaurante_alfredito.servicios.ServicioPedidoImp;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.textfield.TextInputLayout;
@@ -26,6 +29,7 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
 
 
 public class ClienteMenuActivity extends AppCompatActivity {
@@ -37,9 +41,21 @@ public class ClienteMenuActivity extends AppCompatActivity {
 
     ServicioClientes serv_c ;
 
+
+
+
+
+    public  static ArrayList arrayList2_CESTA = new ArrayList() ;
+
+    public static ArrayList<Productos> arrayList_cesta_2 = new ArrayList<>();
+
+    public static ServicioPedido servp = new ServicioPedidoImp();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
 
         binding = ActivityClienteMenuBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

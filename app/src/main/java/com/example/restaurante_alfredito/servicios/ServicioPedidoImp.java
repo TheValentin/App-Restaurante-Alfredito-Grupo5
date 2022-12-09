@@ -12,7 +12,11 @@ import java.util.ArrayList;
 public class ServicioPedidoImp implements  ServicioPedido {
 
 
-    private Pedido ped = new Pedido();
+    public Pedido ped ;
+
+    public ServicioPedidoImp(){
+        ped = new Pedido();
+    }
 
     @Override
     public ArrayList agregarPedido(Context context, String num, String cantidad) {

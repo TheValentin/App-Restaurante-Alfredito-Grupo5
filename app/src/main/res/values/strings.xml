@@ -30,5 +30,9 @@
 
     <string name="google_key">AIzaSyDqSqTa1EVXo_jyQgmkGm82cOYlb2A8i_U</string>
 
-
+    <string-array name="Cantidad">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 </resources>
