@@ -12,8 +12,11 @@ import android.view.Menu;
 import com.example.restaurante_alfredito.R;
 import com.example.restaurante_alfredito.antivity_iniciar1;
 import com.example.restaurante_alfredito.databinding.ActivityAdministradorMenuBinding;
+import com.example.restaurante_alfredito.servicios.ServicioAdministrador;
+import com.example.restaurante_alfredito.servicios.ServicioAdministradorImp;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.textfield.TextInputLayout;
 
 import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
@@ -30,6 +33,11 @@ public class AdministradorMenuActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityAdministradorMenuBinding binding;
+
+    private TextInputLayout txtIDadmin ,txtnombre,txtapellido,txtdni,txttelefono,txtusuario,txtcontrasena;
+    private byte foto;
+
+    ServicioAdministrador serv_a ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +65,33 @@ public class AdministradorMenuActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_administrador_menu);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        txtIDadmin=(TextInputLayout) findViewById(R.id.txtIdAdmin_inicioAdmin);
+        txtnombre=(TextInputLayout) findViewById(R.id.txtNombre_inicioAdmin);
+        txtapellido=(TextInputLayout) findViewById(R.id.txtApellido_inicioAdmin);
+        txtdni=(TextInputLayout) findViewById(R.id.txtDNI_inicioAdmin);
+        txttelefono=(TextInputLayout) findViewById(R.id.txtTelefono_inicioAdmin);
+        txtusuario=(TextInputLayout) findViewById(R.id.txtUsuario_inicioAdmin);
+        txtcontrasena=(TextInputLayout) findViewById(R.id.txtContrasena_inicioAdmin);
+
+
+        serv_a = new ServicioAdministradorImp();
+        Bundle bundle = getIntent().getExtras();
+
+        if (bundle!=null){
+            String usuarioAdmin= bundle.getString("usuarioAdministrador", "0");
+            String contrasenaAdmin= bundle.getString("contrasenaAdministrador", "0");
+
+            Object[] fil_A = serv_a .validarAdministrador(this,usuarioAdmin,contrasenaAdmin);
+            txtIDadmin.getEditText().setText(""+fil_A[0]);
+            txtnombre.getEditText().setText(""+fil_A[1]);
+            txtapellido.getEditText().setText(""+fil_A[2]);
+            txtdni.getEditText().setText(""+fil_A[3]);
+            txttelefono.getEditText().setText(""+fil_A[4]);
+            txtusuario.getEditText().setText(""+fil_A[6]);
+            txtcontrasena.getEditText().setText(""+fil_A[7]);
+
+        }
     }
 
     @Override

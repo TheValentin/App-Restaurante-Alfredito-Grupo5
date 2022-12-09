@@ -32,7 +32,7 @@ public interface GlobalesApp {
             "    telefono   VARCHAR (9),\n" +
             "    foto       BLOB,\n" +
             "    usuario    VARCHAR (50)   UNIQUE,\n" +
-            "    contrasema VARCHAR (8000) \n" +
+            "    contrasena VARCHAR (8000) \n" +
             ");";
 
     String DDL_TABLA_CLIENTES ="CREATE TABLE clientes (\n" +

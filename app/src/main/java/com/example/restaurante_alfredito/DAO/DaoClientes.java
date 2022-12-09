@@ -12,4 +12,7 @@ public interface DaoClientes {
     ArrayList<Clientes> ListarClientes(Context context);
     String CrearCliente(Context context, Clientes clientes );
 
+    String ActualizarClientes(Context context, Clientes clientes);
+
+    public Clientes BuscarClientes(Context context, String id);
 }

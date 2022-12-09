@@ -1,6 +1,5 @@
 package com.example.restaurante_alfredito.DAO;
 
-import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -8,7 +7,6 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.restaurante_alfredito.dto.Clientes;
-import com.example.restaurante_alfredito.dto.Motorizado;
 import com.example.restaurante_alfredito.servicios.ConectaDB;
 import com.example.restaurante_alfredito.utilidades.GlobalesApp;
 
@@ -78,16 +76,76 @@ public class DaoClientesImp implements  DaoClientes{
                 mensaje = "Cliente no registrado";
             }
 
-
             db.close();
         }  catch (SQLException ex){
 
+        }
+        return mensaje;
+    }
+
+    @Override
+    public String ActualizarClientes(Context context, Clientes clientes) {
+
+        String mensaje = null;
+        try {
+            db = new ConectaDB(context, GlobalesApp.BDD, null, GlobalesApp.VERSION).getWritableDatabase();
+            ContentValues registro = new ContentValues();
+            registro.put("idclientes",clientes.getIdclientes());
+            registro.put("nombre",clientes.getNombre());
+            registro.put("apellido",clientes.getApellido());
+            registro.put("dni",clientes.getDni());
+            registro.put("telefono",clientes.getTelefono());
+            registro.put("correo",clientes.getCorreo());
+            registro.put("direccion",clientes.getDireccion());
+            registro.put("usuario ",clientes.getUsuario());
+            registro.put("contrasena ",clientes.getContrasena());
+
+
+            String parametro[] = {"" + clientes.getIdclientes().toString()};
+            long ctos = db.update(GlobalesApp.TBL_CLIENTES, registro, "idclientes=?", parametro);
+
+            if (ctos == 0) {
+                mensaje = "cero filas Actualizadas";
+            }
+
+            db.close();
+        } catch (SQLException ex) {
 
 
         }
         return mensaje;
     }
 
+    @Override
+    public Clientes BuscarClientes(Context context, String id) {
+        Clientes m = new Clientes();
+        try {
+            db = new ConectaDB(context, GlobalesApp.BDD,null,GlobalesApp.VERSION).getReadableDatabase();
+            String cadSQL="select *  from clientes where idclientes = ?";
 
+            String codigo= id;
+            String parametro[]={""+codigo};
+            Cursor c = db.rawQuery(cadSQL,parametro);
 
+            if (c!=null){
+                if (c.moveToFirst()){
+                    m.setIdclientes(c.getString(0));
+                    m.setNombre(c.getString(1));
+                    m.setApellido(c.getString(2));
+                    m.setDni(c.getString(3));
+                    m.setTelefono(c.getString(4));
+                    m.setCorreo(c.getString(5));
+                    m.setDireccion(c.getString(6));
+                    m.setUsuario(c.getString(7));
+                    m.setContrasena(c.getString(8));
+                }else {
+                    return null;
+                }
+                c.close();
+            }
+            db.close();
+        }  catch (SQLException ex){
+        }
+        return m;
+    }
 }

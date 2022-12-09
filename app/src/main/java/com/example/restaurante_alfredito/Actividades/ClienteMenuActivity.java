@@ -12,8 +12,11 @@ import com.example.restaurante_alfredito.PasarelaPagos;
 import com.example.restaurante_alfredito.R;
 import com.example.restaurante_alfredito.antivity_iniciar1;
 import com.example.restaurante_alfredito.databinding.ActivityClienteMenuBinding;
+import com.example.restaurante_alfredito.servicios.ServicioClientes;
+import com.example.restaurante_alfredito.servicios.ServicioClientesImp;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.textfield.TextInputLayout;
 
 import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
@@ -30,16 +33,19 @@ public class ClienteMenuActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityClienteMenuBinding binding;
 
+    private TextInputLayout txtIDcliente ,txtnombre,txtapellido,txtdni,txttelefono,txtcorreo,txtdireccion,txtusuario,txtcontrasena;
+
+    ServicioClientes serv_c ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
         binding = ActivityClienteMenuBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarClienteMenu.toolbar);
+
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
@@ -51,6 +57,38 @@ public class ClienteMenuActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_cliente_menu);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        txtIDcliente=(TextInputLayout) findViewById(R.id.txtIdCliente_inicioCliente);
+        txtnombre=(TextInputLayout) findViewById(R.id.txtNombre_inicioCliente);
+        txtapellido=(TextInputLayout) findViewById(R.id.txtApellido_inicioCliente);
+        txtdni=(TextInputLayout) findViewById(R.id.txtDNI_inicioCliente);
+        txttelefono=(TextInputLayout) findViewById(R.id.txtTelefono_inicioCliente);
+        txtcorreo=(TextInputLayout) findViewById(R.id.txtCorreo_inicioCliente);
+        txtdireccion=(TextInputLayout) findViewById(R.id.txtDireccion_inicioCliente);
+        txtusuario=(TextInputLayout) findViewById(R.id.txtUsuario_inicioCliente);
+        txtcontrasena=(TextInputLayout) findViewById(R.id.txtContrasena_inicioCliente);
+
+
+        serv_c = new ServicioClientesImp();
+        Bundle bundle = getIntent().getExtras();
+
+        if (bundle!=null){
+            String usuarioClientes= bundle.getString("usuarioClientes", "0");
+            String contrasenaClientes= bundle.getString("contrasenaClientes", "0");
+
+            Object[] fil_C = serv_c .validarClientes(this,usuarioClientes,contrasenaClientes);
+
+            txtIDcliente.getEditText().setText(""+fil_C[0]);
+            txtnombre.getEditText().setText(""+fil_C[1]);
+            txtapellido.getEditText().setText(""+fil_C[2]);
+            txtdni.getEditText().setText(""+fil_C[3]);
+            txttelefono.getEditText().setText(""+fil_C[4]);
+            txtcorreo.getEditText().setText(""+fil_C[5]);
+            txtdireccion.getEditText().setText(""+fil_C[6]);
+            txtusuario.getEditText().setText(""+fil_C[7]);
+            txtcontrasena.getEditText().setText(""+fil_C[8]);
+
+        }
     }
 
 

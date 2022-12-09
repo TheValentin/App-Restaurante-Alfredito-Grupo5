@@ -79,12 +79,8 @@ public class DaoMotorizadoImp implements  DaoMotorizado  {
             if (ctos == 0) {
                 mensaje = "cero Empleados insertadas";
             }
-
-
             db.close();
         }  catch (SQLException ex){
-
-
         }
         return mensaje;
     }
@@ -134,8 +130,6 @@ public class DaoMotorizadoImp implements  DaoMotorizado  {
 
             if (c!=null){
                 if (c.moveToFirst()){
-
-
                     m.setIdmotorizado(c.getString(0));
                     m.setNombre(c.getString(1));
                     m.setApellido(c.getString(2));
@@ -144,19 +138,12 @@ public class DaoMotorizadoImp implements  DaoMotorizado  {
                     m.setFoto(c.getBlob(5));
                     m.setUsuario(c.getString(6));
                     m.setContrasena(c.getString(7));
-
-
                 }else {
-
                     return null;
-
                 }
                 c.close();
-
             }
-
             db.close();
-
         }  catch (SQLException ex){
 
         }
@@ -183,6 +170,4 @@ public class DaoMotorizadoImp implements  DaoMotorizado  {
         }
         return mensaje;
     }
-
-
 }
