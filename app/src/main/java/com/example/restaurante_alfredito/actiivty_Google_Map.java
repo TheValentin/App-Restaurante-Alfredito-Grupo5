@@ -56,6 +56,7 @@ import com.google.android.gms.tasks.Task;
 import java.util.HashMap;
 import java.util.Map;
 
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -83,6 +84,7 @@ import java.util.List;
 public class actiivty_Google_Map extends FragmentActivity implements OnMapReadyCallback {
 
 
+
     // Estado del Settings de verificación de permisos del GPS
     private static final int REQUEST_CHECK_SETTINGS = 102;
 
@@ -108,6 +110,8 @@ public class actiivty_Google_Map extends FragmentActivity implements OnMapReadyC
     // Mapa de Google
     private GoogleMap mMap;
 
+    private TextView mi_ubicacion;
+
     //private ActivityGoogleMapBinding binding;
 
 
@@ -120,6 +124,10 @@ public class actiivty_Google_Map extends FragmentActivity implements OnMapReadyC
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_google_map);
+        mi_ubicacion=(TextView)findViewById(R.id.txtDireccion_inicioCliente);
+
+
+
 
 
         //prueba //

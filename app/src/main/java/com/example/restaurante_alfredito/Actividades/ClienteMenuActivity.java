@@ -78,7 +78,7 @@ public class ClienteMenuActivity extends AppCompatActivity {
 
             Object[] fil_C = serv_c .validarClientes(this,usuarioClientes,contrasenaClientes);
 
-            txtIDcliente.getEditText().setText(""+fil_C[0]);
+            txtIDcliente.getEditText().setText(fil_C[0].toString());
             txtnombre.getEditText().setText(""+fil_C[1]);
             txtapellido.getEditText().setText(""+fil_C[2]);
             txtdni.getEditText().setText(""+fil_C[3]);

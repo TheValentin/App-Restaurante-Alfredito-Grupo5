@@ -3,6 +3,7 @@ package com.example.restaurante_alfredito.servicios;
 import android.content.Context;
 
 import com.example.restaurante_alfredito.DAO.DaoClientesImp;
+import com.example.restaurante_alfredito.DAO.DaoMotorizadoImp;
 import com.example.restaurante_alfredito.dto.Clientes;
 
 import java.util.ArrayList;
@@ -102,6 +103,16 @@ public class ServicioClientesImp implements  ServicioClientes{
         }
 
         return null;
+    }
+
+    @Override
+    public String EliminarCliente(Context context, String cod) {
+
+        String msg=new DaoClientesImp().eliminarCliente(context,cod);
+        if(msg==null){
+            msg="Empleado Eliminado";
+        }
+        return msg;
     }
 
 }

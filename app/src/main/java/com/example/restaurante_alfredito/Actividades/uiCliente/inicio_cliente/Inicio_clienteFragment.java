@@ -1,30 +1,35 @@
 package com.example.restaurante_alfredito.Actividades.uiCliente.inicio_cliente;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 
+import com.example.restaurante_alfredito.Actividades.ClienteMenuActivity;
 import com.example.restaurante_alfredito.R;
-import com.example.restaurante_alfredito.servicios.ServicioAdministrador;
-import com.example.restaurante_alfredito.servicios.ServicioAdministradorImp;
+import com.example.restaurante_alfredito.antivity_iniciar1;
 import com.example.restaurante_alfredito.servicios.ServicioClientes;
 import com.example.restaurante_alfredito.servicios.ServicioClientesImp;
 import com.google.android.material.textfield.TextInputLayout;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
-import android.graphics.Color;
+
 import android.widget.Button;
+import android.widget.Toast;
 
 public class Inicio_clienteFragment extends Fragment {
 
     private TextInputLayout txtIDcliente ,txtnombre,txtapellido,txtdni,txttelefono,txtcorreo,txtdireccion,txtusuario,txtcontrasena;
-    private Button btnActualizar;
+    private Button btnActualizar, btnEliinarcuenta;
     ServicioClientes servicioClientes;
 
 
@@ -50,6 +55,7 @@ public class Inicio_clienteFragment extends Fragment {
         txtcontrasena=(TextInputLayout) view.findViewById(R.id.txtContrasena_inicioCliente);
 
         btnActualizar=(Button) view.findViewById(R.id.btnActualizar_inicioCliente);
+        btnEliinarcuenta=(Button) view.findViewById(R.id.btnEliminarCuentaCliente);
 
         btnActualizar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,6 +73,35 @@ public class Inicio_clienteFragment extends Fragment {
 
             }
         });
+        btnEliinarcuenta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mostrarDialogo();
+
+            }
+        });
+
+    }
+    private void mostrarDialogo(){
+        AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+        builder.setTitle("Eliminar Cuenta");
+        builder.setMessage("Quieres Eliminar tu cuenta, se borrar todo tus datos")
+                .setPositiveButton("SI", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        servicioClientes.EliminarCliente(getActivity(),txtIDcliente.getEditText().getText().toString());
+                        Toast.makeText(getActivity().getApplicationContext(), "Eliminando...",Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getActivity(), antivity_iniciar1.class);
+                        startActivity(intent);
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(getActivity().getApplicationContext(), "Cancelado",Toast.LENGTH_SHORT).show();
+
+                    }
+                }).show();
 
     }
 

@@ -47,6 +47,7 @@
                     android:id="@+id/txtIdCliente_inicioCliente"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:enabled="false"
                     android:paddingTop="20dp">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -155,11 +156,24 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
 
-                <Button
-                    android:id="@+id/btnActualizar_inicioCliente"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Actualizar" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnActualizar_inicioCliente"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Actualizar" />
+
+                    <Button
+                        android:id="@+id/btnEliminarCuentaCliente"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Eliminar cuenta" />
+                </LinearLayout>
             </LinearLayout>
         </ScrollView>
 

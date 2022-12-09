@@ -100,11 +100,5 @@ Button button_detalle  =(Button) convertView.findViewById(R.id.fil_Mas_detalle);
 
     public void dialalogo (){
 
-
-
-
     }
-
-
-
 }

@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
+import com.example.restaurante_alfredito.Actividades.MotorizadoMenuActivity;
 import com.example.restaurante_alfredito.R;
 import com.example.restaurante_alfredito.servicios.ServicioMotorizado;
 import com.example.restaurante_alfredito.servicios.ServicioMotorizadoImp;
@@ -73,6 +75,9 @@ public class inicio_motorizadoFragment extends Fragment {
         ir_almacenamiento=(Button) view.findViewById(R.id.BtnGaleriaInicio_empleado);
         btnActualizar=(Button) view.findViewById(R.id.btnActualizar_inicioEmpleado);
 
+        String idMoto=MotorizadoMenuActivity.IDMotorrizado;
+
+
         tomar_captura.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -111,6 +116,8 @@ public class inicio_motorizadoFragment extends Fragment {
 
 
 
+
+
                 servicioMotorizado.ActualizarEmpleado(getActivity(),txtIDmotrizado.getEditText().getText().toString(), txtnombre.getEditText().getText().toString(),txtapellido.getEditText().getText().toString(),txtdni.getEditText().getText().toString(),txttelefono.getEditText().getText().toString(),byteArray,txtusuario.getEditText().getText().toString(),txtcontrasena.getEditText().getText().toString());
 
 
@@ -125,6 +132,33 @@ public class inicio_motorizadoFragment extends Fragment {
 
 
         });
+
+
+
+
+
+        Object[] ListaMotorizado =servicioMotorizado.Buscar_Motorizado(getActivity(),idMoto);
+
+        txtIDmotrizado.getEditText().setText(ListaMotorizado[0].toString());
+        txtnombre.getEditText().setText(""+ListaMotorizado[1].toString());
+        txtapellido.getEditText().setText(""+ListaMotorizado[2].toString());
+        txtdni.getEditText().setText(""+ListaMotorizado[3].toString());
+        txttelefono.getEditText().setText(""+ListaMotorizado[4].toString());
+
+
+        byte[] blob = (byte[]) ListaMotorizado[5];
+        ByteArrayInputStream bais= null;
+        Bitmap bitmap= null;
+        if (blob !=null){
+            bais = new ByteArrayInputStream(blob);
+            bitmap = BitmapFactory.decodeStream(bais);
+        }
+        foto_Empleado.setImageBitmap(bitmap);
+
+
+        txtusuario.getEditText().setText(""+ListaMotorizado[6]);
+        txtcontrasena.getEditText().setText(""+ListaMotorizado[7]);
+
 
 
 

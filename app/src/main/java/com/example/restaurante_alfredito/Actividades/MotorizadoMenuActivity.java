@@ -39,11 +39,21 @@ public class MotorizadoMenuActivity extends AppCompatActivity {
     private TextInputLayout txtIDmotrizado ,txtnombre,txtapellido,txtdni,txttelefono,txtusuario,txtcontrasena;
     private ImageView foto;
 
+
     ServicioMotorizado serv_m ;
+
+
+
+    public static String IDMotorrizado="00";
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Bundle bundle = getIntent().getExtras();
+        IDMotorrizado=bundle.getString("IDMotorrizado", "0");;
 
         binding = ActivityMotorizadoBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -80,13 +90,32 @@ public class MotorizadoMenuActivity extends AppCompatActivity {
 
 
         serv_m = new ServicioMotorizadoImp();
-        Bundle bundle = getIntent().getExtras();
+
 
         if (bundle!=null){
-            String usuarioMotorizado= bundle.getString("usuarioMotorizado", "0");
-            String contrasenaMotorizado= bundle.getString("contrasenaMotorizado", "0");
 
-            Object[] fil_M = serv_m .validarMotorizado(this,usuarioMotorizado,contrasenaMotorizado);
+
+/*
+            Object[] ListaMotorizado =serv_m.Buscar_Motorizado(MotorizadoMenuActivity.this,IDMotorrizado);
+
+            txtIDmotrizado.getEditText().setText(ListaMotorizado[0].toString());
+            txtnombre.getEditText().setText(""+ListaMotorizado[1].toString());
+            txtapellido.getEditText().setText(""+ListaMotorizado[2].toString());
+            txtdni.getEditText().setText(""+ListaMotorizado[3].toString());
+            txttelefono.getEditText().setText(""+ListaMotorizado[4].toString());
+
+
+            byte[] blob = (byte[]) ListaMotorizado[5];
+            ByteArrayInputStream bais= null;
+            Bitmap bitmap= null;
+            if (blob !=null){
+                bais = new ByteArrayInputStream(blob);
+                bitmap = BitmapFactory.decodeStream(bais);
+            }
+
+            foto.setImageBitmap(bitmap);
+
+
             txtIDmotrizado.getEditText().setText(""+fil_M[0]);
             txtnombre.getEditText().setText(""+fil_M[1]);
             txtapellido.getEditText().setText(""+fil_M[2]);
@@ -106,7 +135,7 @@ public class MotorizadoMenuActivity extends AppCompatActivity {
 
             txtusuario.getEditText().setText(""+fil_M[6]);
             txtcontrasena.getEditText().setText(""+fil_M[7]);
-
+*/
         }
 
 
@@ -127,7 +156,9 @@ public class MotorizadoMenuActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.cerrar_sesion_motorizado:
                 ///
+
                 Intent siguiente6 = new Intent(MotorizadoMenuActivity.this, antivity_iniciar1.class);
+                IDMotorrizado=null;
                 startActivity(siguiente6);
                 break;
 

@@ -15,4 +15,6 @@ public interface DaoClientes {
     String ActualizarClientes(Context context, Clientes clientes);
 
     public Clientes BuscarClientes(Context context, String id);
+
+    String eliminarCliente(Context context,String cod);
 }

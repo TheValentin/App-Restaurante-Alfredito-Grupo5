@@ -9,4 +9,5 @@ public interface ServicioClientes {
     String RegistrarUsuariosCLientes(Context context, String nombre, String apellido, String telefno, String dni, String correo, String usuario, String contrasena, String direccion, String idUsuario );
     String ActualizarClientes(Context context, String idclientes, String nombre, String apellido, String dni, String telefono, String correo, String direccion, String usuario, String contrasena);
     Object[] Buscar_Clientes(Context context, String cod);
+    String EliminarCliente(Context context, String cod);
 }

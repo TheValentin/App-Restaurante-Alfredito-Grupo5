@@ -76,6 +76,12 @@
             android:text="Tiempo: 5 min"
             tools:layout_editor_absoluteX="6dp"
             tools:layout_editor_absoluteY="451dp" />
+
+        <TextView
+            android:id="@+id/txtDirrecionCliente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mi ubicacion" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
