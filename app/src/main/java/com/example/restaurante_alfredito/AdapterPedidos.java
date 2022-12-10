@@ -1,8 +1,11 @@
 package com.example.restaurante_alfredito;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.app.Service;
 import android.content.Context;
 import android.os.Vibrator;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,9 +40,12 @@ ServicioPedido sp =new ServicioPedidoImp();
     }
 
 
+
+    @SuppressLint("MissingPermission")
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        vibrator= (Vibrator) mContext.getSystemService(Service.VIBRATOR_SERVICE);
 
         LayoutInflater layoutInflater = LayoutInflater.from(mContext);
 
@@ -60,6 +66,14 @@ ServicioPedido sp =new ServicioPedidoImp();
         txtmonto.setText(getItem(position).getTotal());
 
 
+
+
+        long[] tonosIzq ={1000,2000,3000,4000};
+        if (getItem(position).getCodigo()!=null || getItem(position).getCodigo().equals("") ||!getItem(position).getCodigo().isEmpty()){
+            Log.i("INFOX","on - vibrador");
+            vibrator.vibrate(tonosIzq, -1);// 0 indifinidamente -1
+        }
+
         ///Vetana emergente
         AlertDialog dialog_buscar ;
 
@@ -72,11 +86,20 @@ ServicioPedido sp =new ServicioPedidoImp();
 
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < sdp.listarPedido(getContext(),txtcodigo.getText().toString()).size(); i++) {
+
+
+
+
             Object[] Listadetalle = (Object[])sdp.listarPedido(getContext(),txtcodigo.getText().toString()).get(i);
             sb.append(Listadetalle[0].toString());
             sb.append("\t");
             sb.append(Listadetalle[1].toString());
+
             sb.append("\n");
+
+
+
+
         }
 
         txtdetalleP.getEditText().setText(sb.toString());
