@@ -5,8 +5,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
-
-
+import android.widget.ImageView;
 
 
 import com.example.restaurante_alfredito.R;
@@ -35,13 +34,18 @@ public class AdministradorMenuActivity extends AppCompatActivity {
     private ActivityAdministradorMenuBinding binding;
 
     private TextInputLayout txtIDadmin ,txtnombre,txtapellido,txtdni,txttelefono,txtusuario,txtcontrasena;
-    private byte foto;
+    private ImageView foto;
 
     ServicioAdministrador serv_a ;
+
+    public static String IDAdministrador="00";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Bundle bundle = getIntent().getExtras();
+        IDAdministrador=bundle.getString("IDAdministrador", "0");;
 
         binding = ActivityAdministradorMenuBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -74,14 +78,12 @@ public class AdministradorMenuActivity extends AppCompatActivity {
         txtusuario=(TextInputLayout) findViewById(R.id.txtUsuario_inicioAdmin);
         txtcontrasena=(TextInputLayout) findViewById(R.id.txtContrasena_inicioAdmin);
 
+        foto=(ImageView) findViewById(R.id.imagen_Admin_Inicio);
 
         serv_a = new ServicioAdministradorImp();
-        Bundle bundle = getIntent().getExtras();
 
         if (bundle!=null){
-            String usuarioAdmin= bundle.getString("usuarioAdministrador", "0");
-            String contrasenaAdmin= bundle.getString("contrasenaAdministrador", "0");
-
+/*
             Object[] fil_A = serv_a .validarAdministrador(this,usuarioAdmin,contrasenaAdmin);
             txtIDadmin.getEditText().setText(""+fil_A[0]);
             txtnombre.getEditText().setText(""+fil_A[1]);
@@ -90,7 +92,7 @@ public class AdministradorMenuActivity extends AppCompatActivity {
             txttelefono.getEditText().setText(""+fil_A[4]);
             txtusuario.getEditText().setText(""+fil_A[6]);
             txtcontrasena.getEditText().setText(""+fil_A[7]);
-
+*/
         }
     }
 

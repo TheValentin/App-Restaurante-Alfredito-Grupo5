@@ -52,7 +52,6 @@ public class ServicioAdministradorImp implements  ServicioAdministrador{
         String msg=new DaoAdministradorImp().CrearRegistroAdmin(context,m);
         if (msg==null) {
             msg="Admin Agregado";
-            msg="Admin Agregado";
         }
         return msg;
     }
@@ -83,7 +82,7 @@ public class ServicioAdministradorImp implements  ServicioAdministrador{
 
         Administrador m = new DaoAdministradorImp().BuscarAdmin(context, cod);
         if (m != null) {
-            Object[] fil = new Object[7];
+            Object[] fil = new Object[8];
             fil[0] = m.getIdadmin();
             fil[1] = m.getNombre();
             fil[2] = m.getApellido();

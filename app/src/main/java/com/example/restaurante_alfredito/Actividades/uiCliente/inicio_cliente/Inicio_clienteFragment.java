@@ -2,6 +2,8 @@ package com.example.restaurante_alfredito.Actividades.uiCliente.inicio_cliente;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,7 +26,10 @@ import com.google.android.material.textfield.TextInputLayout;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Toast;
+
+import java.io.ByteArrayInputStream;
 
 public class Inicio_clienteFragment extends Fragment {
 
@@ -32,7 +37,7 @@ public class Inicio_clienteFragment extends Fragment {
     private Button btnActualizar, btnEliinarcuenta;
     ServicioClientes servicioClientes;
 
-
+    ListView listahistorial;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -57,10 +62,11 @@ public class Inicio_clienteFragment extends Fragment {
         btnActualizar=(Button) view.findViewById(R.id.btnActualizar_inicioCliente);
         btnEliinarcuenta=(Button) view.findViewById(R.id.btnEliminarCuentaCliente);
 
+        String idCliente= ClienteMenuActivity.IDCliente;
+
         btnActualizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
 
                 servicioClientes.ActualizarClientes(getActivity(),txtIDcliente.getEditText().getText().toString(), txtnombre.getEditText().getText().toString(),txtapellido.getEditText().getText().toString(),txtdni.getEditText().getText().toString(),txttelefono.getEditText().getText().toString(),txtcorreo.getEditText().getText().toString(),txtdireccion.getEditText().getText().toString(),txtusuario.getEditText().getText().toString(),txtcontrasena.getEditText().getText().toString());
 
@@ -68,8 +74,6 @@ public class Inicio_clienteFragment extends Fragment {
                 new SweetAlertDialog(getActivity(),SweetAlertDialog.SUCCESS_TYPE)
                         .setTitleText("Registro Actualizado")
                         .show();
-
-
 
             }
         });
@@ -80,6 +84,20 @@ public class Inicio_clienteFragment extends Fragment {
 
             }
         });
+
+        Object[] ListaCliente =servicioClientes.Buscar_Clientes(getActivity(),idCliente);
+
+        txtIDcliente.getEditText().setText(ListaCliente[0].toString());
+        txtnombre.getEditText().setText(""+ListaCliente[1].toString());
+        txtapellido.getEditText().setText(""+ListaCliente[2].toString());
+        txtdni.getEditText().setText(""+ListaCliente[3].toString());
+        txttelefono.getEditText().setText(""+ListaCliente[4].toString());
+        txtcorreo.getEditText().setText(""+ListaCliente[5].toString());
+        txtdireccion.getEditText().setText(""+ListaCliente[6].toString());
+
+        txtusuario.getEditText().setText(""+ListaCliente[7]);
+        txtcontrasena.getEditText().setText(""+ListaCliente[8]);
+
 
     }
     private void mostrarDialogo(){
