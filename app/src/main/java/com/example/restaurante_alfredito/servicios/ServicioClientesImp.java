@@ -89,7 +89,7 @@ public class ServicioClientesImp implements  ServicioClientes{
 
         Clientes m = new DaoClientesImp().BuscarClientes(context, cod);
         if (m != null) {
-            Object[] fil = new Object[8];
+            Object[] fil = new Object[9];
             fil[0] = m.getIdclientes();
             fil[1] = m.getNombre();
             fil[2] = m.getApellido();

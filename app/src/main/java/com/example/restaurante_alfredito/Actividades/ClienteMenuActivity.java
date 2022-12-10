@@ -41,9 +41,7 @@ public class ClienteMenuActivity extends AppCompatActivity {
 
     ServicioClientes serv_c ;
 
-
-
-
+    public static String IDCliente="00";
 
     public  static ArrayList arrayList2_CESTA = new ArrayList() ;
 
@@ -55,7 +53,8 @@ public class ClienteMenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
+        Bundle bundle = getIntent().getExtras();
+        IDCliente=bundle.getString("IDCliente", "0");;
 
         binding = ActivityClienteMenuBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -84,11 +83,11 @@ public class ClienteMenuActivity extends AppCompatActivity {
         txtusuario=(TextInputLayout) findViewById(R.id.txtUsuario_inicioCliente);
         txtcontrasena=(TextInputLayout) findViewById(R.id.txtContrasena_inicioCliente);
 
-
         serv_c = new ServicioClientesImp();
-        Bundle bundle = getIntent().getExtras();
 
         if (bundle!=null){
+
+/*
             String usuarioClientes= bundle.getString("usuarioClientes", "0");
             String contrasenaClientes= bundle.getString("contrasenaClientes", "0");
 
@@ -104,6 +103,7 @@ public class ClienteMenuActivity extends AppCompatActivity {
             txtusuario.getEditText().setText(""+fil_C[7]);
             txtcontrasena.getEditText().setText(""+fil_C[8]);
 
+*/
         }
     }
 
