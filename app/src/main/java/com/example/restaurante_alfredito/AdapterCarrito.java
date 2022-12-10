@@ -86,11 +86,13 @@ private int mResourse;
 
 
                 ClienteMenuActivity.arrayList_cesta_2.clear();
+                CarritoFragment.TOTAL_preci=0;
                 for (int i = 0; i < ClienteMenuActivity.arrayList2_CESTA.size(); i++) {
                     Object[] ae= (Object[]) ClienteMenuActivity.arrayList2_CESTA.get(i);
 
 
                     ClienteMenuActivity.arrayList_cesta_2 .add(new Productos( (byte[])ae[2], ae[0].toString() ,ae[1].toString(),ae[3].toString(),ae[4].toString()));
+                    CarritoFragment.TOTAL_preci=CarritoFragment.TOTAL_preci+Double.parseDouble(ae[4].toString());;
                 }
 
 
@@ -103,6 +105,7 @@ private int mResourse;
                 CarritoFragment.pppp2 = new AdapterCarrito(mContext, R.layout.item_carrito, ClienteMenuActivity.arrayList_cesta_2 );
 
                 CarritoFragment.listView2.setAdapter(CarritoFragment.pppp2 );
+                CarritoFragment.TOTAL_PRECIO_PEDIDO.setText(""+ CarritoFragment.TOTAL_preci);
 
 
 

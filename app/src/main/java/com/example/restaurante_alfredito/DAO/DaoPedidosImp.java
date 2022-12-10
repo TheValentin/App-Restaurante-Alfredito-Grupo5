@@ -14,6 +14,7 @@ import com.example.restaurante_alfredito.servicios.ConectaDB;
 import com.example.restaurante_alfredito.utilidades.GlobalesApp;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -29,18 +30,24 @@ public class DaoPedidosImp implements DaoPedidos {
 
     @Override
     public ArrayList<Pedido> ListarPedidos(Context context) {
-        Producto M= null;
+
         db = new ConectaDB(context, GlobalesApp.BDD,null,GlobalesApp.VERSION).getWritableDatabase();
         Pedido pedido=null;
         String cadSQL="select *  from pedido";
         Cursor c =db.rawQuery(cadSQL,null);
-
+        SimpleDateFormat form =new SimpleDateFormat("dd/MM/yyyy"); //para darle fomato a la variable date
         while (c.moveToNext()){
             pedido=new Pedido();
-            String fechaux = c.getString(1);
-            LocalDate date= LocalDate.parse(fechaux);
             pedido.setIdpedido(c.getString(0));
-            pedido.setFecha(date);
+
+            String fechaux = c.getString(1);
+            Date con= null;
+            try {
+                con = form.parse(fechaux);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            pedido.setFecha(con);
             pedido.setEstado(c.getString(2));
             pedido.setTotal(c.getDouble(3));
             pedido.setFkclientes(c.getString(4));
@@ -72,7 +79,7 @@ public class DaoPedidosImp implements DaoPedidos {
 
 
 
-            long ctos =db.insert(GlobalesApp.DDL_TABLA_PEDIDO,null,registro_pedido);
+            long ctos =db.insert(GlobalesApp.TBL_PEDIDO,null,registro_pedido);
 
 
             if (ctos == 0) {
@@ -106,7 +113,7 @@ public class DaoPedidosImp implements DaoPedidos {
             registro_pedido.put("fkproducto",det.getProducto().getIdproducto());
             registro_pedido.put("cantidad",det.getCantidad());
 
-            long ctos =db.insert(GlobalesApp.DDL_TABLA_DETALLE_PEDIDO,null,registro_pedido);
+            long ctos =db.insert(GlobalesApp.TBL_DETALLE_PEDIDO,null,registro_pedido);
 
 
             if (ctos == 0) {

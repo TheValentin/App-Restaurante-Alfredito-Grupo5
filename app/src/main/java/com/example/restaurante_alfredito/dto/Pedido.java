@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class Pedido {
     private String idpedido;
-    private LocalDate fecha;
+    private Date fecha;
     private String estado;
     private double total;
 
@@ -20,7 +20,7 @@ public class Pedido {
         Cesta=new ArrayList();
     }
 
-    public Pedido(String idpedido, LocalDate fecha, String estado, double total) {
+    public Pedido(String idpedido, Date fecha, String estado, double total) {
 
         this.idpedido = idpedido;
         this.fecha = fecha;
@@ -36,11 +36,11 @@ public class Pedido {
         this.idpedido = idpedido;
     }
 
-    public LocalDate getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(LocalDate fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
@@ -102,6 +102,16 @@ Detalle_pedido detalle_pedido= new Detalle_pedido(pro,cantidad);
 
             }
         }
+    }
+    public double getTotal_de_pedido(){
+        double total=0;
+        for (int i = 0; i <Cesta.size(); i++) {
+
+            Detalle_pedido detalle_pedido=(Detalle_pedido)Cesta.get(i);
+                    total=total+detalle_pedido.getImporte();
+        }
+
+        return total;
     }
 
 

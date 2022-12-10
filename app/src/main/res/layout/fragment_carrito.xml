@@ -38,12 +38,29 @@
                 android:textColor="#000000"
                 android:textSize="20sp" />
 
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Total:"
+                android:textColor="@color/red"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/txt_TOTAL_CARRITO"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="S/:"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
         </LinearLayout>
 
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <ListView
                 android:id="@+id/listapedidoscarrito"
                 android:layout_width="match_parent"
@@ -51,12 +68,13 @@
                 android:paddingBottom="50dp">
 
             </ListView>
+
             <Button
                 android:id="@+id/BtnPasarela"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_alignParentBottom="true"
-                android:text="Pasarela de pago" />
+                android:text="Confirma_Pedido" />
         </RelativeLayout>
 
 

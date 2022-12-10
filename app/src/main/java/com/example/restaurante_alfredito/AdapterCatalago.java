@@ -94,7 +94,7 @@ Button button_detalle  =(Button) convertView.findViewById(R.id.fil_Mas_detalle);
 
 
                 }
-                if (adapterView.getItemAtPosition(i).equals("No Asistio")){
+                if (adapterView.getItemAtPosition(i).equals("2")){
 
                     String [] opciones1 = {"2","1",};
                     Lista_de_comidasFragment.arrayList33 .get(position).setOpciones(opciones1 );
@@ -117,7 +117,8 @@ Button button_detalle  =(Button) convertView.findViewById(R.id.fil_Mas_detalle);
 
 Object []op=a.getOpciones();
 
-                ClienteMenuActivity.arrayList2_CESTA = ClienteMenuActivity.servp.agregarPedido(getContext(),a.getNombre(),op[0].toString());
+                ClienteMenuActivity.arrayList2_CESTA =
+                        ClienteMenuActivity.servp.agregarPedido(getContext(),a.getNombre(),op[0].toString());
 
             }
         });
