@@ -67,16 +67,16 @@ public class antivity_iniciar1 extends AppCompatActivity {
                          }
                if (fil_A!=null){
                    Intent intent = new Intent(this, AdministradorMenuActivity.class);
-                   //Bundle bundle = new Bundle();
-                   //bundle.putString("IDAdministrador",""+fil_A[0]);
-                   //intent.putExtras(bundle);
+                   Bundle bundle = new Bundle();
+                   bundle.putString("IDAdministrador",""+fil_A[0]);
+                   intent.putExtras(bundle);
                    startActivity(intent);
                }
                if (fil_C!=null){
                    Intent intent = new Intent(this, ClienteMenuActivity.class);
                    Bundle bundle = new Bundle();
-                   //bundle.putString("IDCliente",""+fil_C[0]);
-                   //intent.putExtras(bundle);
+                   bundle.putString("IDCliente",""+fil_C[0]);
+                   intent.putExtras(bundle);
                    startActivity(intent);
                }
 
