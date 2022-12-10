@@ -2,24 +2,53 @@ package com.example.restaurante_alfredito.DAO;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.example.restaurante_alfredito.dto.Detalle_pedido;
 import com.example.restaurante_alfredito.dto.Pedido;
+import com.example.restaurante_alfredito.dto.Producto;
 import com.example.restaurante_alfredito.servicios.ConectaDB;
 import com.example.restaurante_alfredito.utilidades.GlobalesApp;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class DaoPedidosImp implements DaoPedidos {
 
     private SQLiteDatabase db ;
 
+    ArrayList<String> listaInformacion;
+    ArrayList<Pedido> list  =  new ArrayList<>();
+
     @Override
     public ArrayList<Pedido> ListarPedidos(Context context) {
-        return null;
+        Producto M= null;
+        db = new ConectaDB(context, GlobalesApp.BDD,null,GlobalesApp.VERSION).getWritableDatabase();
+        Pedido pedido=null;
+        String cadSQL="select *  from pedido";
+        Cursor c =db.rawQuery(cadSQL,null);
+
+        while (c.moveToNext()){
+            pedido=new Pedido();
+            String fechaux = c.getString(1);
+            LocalDate date= LocalDate.parse(fechaux);
+            pedido.setIdpedido(c.getString(0));
+            pedido.setFecha(date);
+            pedido.setEstado(c.getString(2));
+            pedido.setTotal(c.getDouble(3));
+            pedido.setFkclientes(c.getString(4));
+            pedido.setFkmotorizado(c.getString(5));
+
+            list.add(pedido);
+        }
+        return list;
     }
 
     @Override

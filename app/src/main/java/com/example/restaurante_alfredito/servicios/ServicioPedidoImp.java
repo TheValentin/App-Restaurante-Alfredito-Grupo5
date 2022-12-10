@@ -2,6 +2,7 @@ package com.example.restaurante_alfredito.servicios;
 
 import android.content.Context;
 
+import com.example.restaurante_alfredito.DAO.DaoPedidosImp;
 import com.example.restaurante_alfredito.DAO.DaoProductoImp;
 import com.example.restaurante_alfredito.dto.Detalle_pedido;
 import com.example.restaurante_alfredito.dto.Pedido;
@@ -37,6 +38,31 @@ public class ServicioPedidoImp implements  ServicioPedido {
             lista.add(fil);
         }
         return lista;
+
+    }
+
+    @Override
+    public ArrayList listarPedido(Context context) {
+
+        ArrayList  lis=new DaoPedidosImp().ListarPedidos(context);
+        if (lis!=null) {
+            ArrayList lista=new ArrayList();
+            for (int i = 0; i <lis.size(); i++) {
+                Pedido  p=(Pedido)lis.get(i);
+                Object[] fil = new Object[6];
+                fil[0] = p.getIdpedido();
+                fil[1] = p.getFecha();
+                fil[2] = p.getEstado();
+                fil[3] = p.getTotal();
+                fil[4] = p.getFkclientes();
+                fil[5] = p.getFkmotorizado();
+                lista.add(fil);
+
+            }
+            return lista;
+        }
+
+        return null;
 
     }
 

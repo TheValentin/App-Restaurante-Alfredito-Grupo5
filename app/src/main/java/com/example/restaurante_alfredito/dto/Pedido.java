@@ -1,11 +1,12 @@
 package com.example.restaurante_alfredito.dto;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class Pedido {
     private String idpedido;
-    private Date fecha;
+    private LocalDate fecha;
     private String estado;
     private double total;
 
@@ -19,7 +20,7 @@ public class Pedido {
         Cesta=new ArrayList();
     }
 
-    public Pedido(String idpedido, Date fecha, String estado, double total) {
+    public Pedido(String idpedido, LocalDate fecha, String estado, double total) {
 
         this.idpedido = idpedido;
         this.fecha = fecha;
@@ -35,11 +36,11 @@ public class Pedido {
         this.idpedido = idpedido;
     }
 
-    public Date getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 
