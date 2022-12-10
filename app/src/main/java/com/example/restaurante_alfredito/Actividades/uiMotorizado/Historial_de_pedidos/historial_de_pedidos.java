@@ -34,10 +34,10 @@ public class historial_de_pedidos extends Fragment {
 
         ArrayList<Pedidos> arrayList4 = new ArrayList<>();
 
-        arrayList4.add(new Pedidos("19-enero-2022", "Codigo: " + "126316", "Completado", "Cliente: " + "XXXXXXXXXXXXXXXX"));
-        arrayList4.add(new Pedidos("19-enero-2022", "Codigo: " + "126316", "Completado", "Cliente: " + "XXXXXXXXXXXXXXXX"));
-        arrayList4.add(new Pedidos("19-enero-2022", "Codigo: " + "126316", "Completado", "Cliente: " + "XXXXXXXXXXXXXXXX"));
-        arrayList4.add(new Pedidos("19-enero-2022", "Codigo: " + "126316", "Cancelado", "Cliente: " + "XXXXXXXXXXXXXXXX"));
+        arrayList4.add(new Pedidos("19-enero-2022", "Codigo: " + "126316", "Completado", "Cliente: " + "XXXXXXXXXXXXXXXX","200"));
+        arrayList4.add(new Pedidos("19-enero-2022", "Codigo: " + "126316", "Completado", "Cliente: " + "XXXXXXXXXXXXXXXX","200"));
+        arrayList4.add(new Pedidos("19-enero-2022", "Codigo: " + "126316", "Completado", "Cliente: " + "XXXXXXXXXXXXXXXX","200"));
+        arrayList4.add(new Pedidos("19-enero-2022", "Codigo: " + "126316", "Cancelado", "Cliente: " + "XXXXXXXXXXXXXXXX","200"));
 
         AdapterPedidos pppp4 = new AdapterPedidos(getActivity(), R.layout.filas4, arrayList4);
 

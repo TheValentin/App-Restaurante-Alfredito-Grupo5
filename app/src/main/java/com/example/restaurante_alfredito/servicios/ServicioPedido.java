@@ -18,4 +18,6 @@ public interface ServicioPedido {
 
     public String Grabar_pedido(Context context, String num_res, String num_cliente, String total);
 
+    String ActualizarEstado(Context context, String id);
+
 }

@@ -30,31 +30,37 @@ public class DaoPedidosImp implements DaoPedidos {
 
     @Override
     public ArrayList<Pedido> ListarPedidos(Context context) {
-
+        ArrayList<Pedido> list  =  new ArrayList<>();
+        Pedido P= null;
         db = new ConectaDB(context, GlobalesApp.BDD,null,GlobalesApp.VERSION).getWritableDatabase();
-        Pedido pedido=null;
-        String cadSQL="select *  from pedido";
+
+        String cadSQL="SELECT p.idpedido,c.nombre,p.fecha,p.total,p.estado FROM pedido p " +
+                "INNER JOIN clientes c on p.fkclientes=c.idclientes where p.estado='PENDIENTE'";
+
         Cursor c =db.rawQuery(cadSQL,null);
-        SimpleDateFormat form =new SimpleDateFormat("dd/MM/yyyy"); //para darle fomato a la variable date
-        while (c.moveToNext()){
-            pedido=new Pedido();
-            pedido.setIdpedido(c.getString(0));
+        StringBuilder sb = new StringBuilder();
+        if (c!=null){
+            SimpleDateFormat form2 =new SimpleDateFormat("dd/MM/yyyy");
+            if (c.moveToFirst()){
+                do{
+                    P = new Pedido ();
+                    P.setIdpedido(c.getString(0));
+                    P.setFkclientes(c.getString(1));
+                    try {
+                        P.setFecha(form2.parse(c.getString(2)));
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    P.setTotal(c.getDouble(3));
+                    P.setEstado(c.getString(4));
+                    list.add(P);
+                }while (c.moveToNext());
 
-            String fechaux = c.getString(1);
-            Date con= null;
-            try {
-                con = form.parse(fechaux);
-            } catch (ParseException e) {
-                e.printStackTrace();
             }
-            pedido.setFecha(con);
-            pedido.setEstado(c.getString(2));
-            pedido.setTotal(c.getDouble(3));
-            pedido.setFkclientes(c.getString(4));
-            pedido.setFkmotorizado(c.getString(5));
-
-            list.add(pedido);
+            c.close();
+        }else {
         }
+        db.close();
         return list;
     }
 
@@ -129,6 +135,32 @@ public class DaoPedidosImp implements DaoPedidos {
         return mensaje;
 
 
+
+    }
+
+    @Override
+    public String ActualizarEstado(Context context, String id) {
+        String mensaje = null;
+        try {
+            db = new ConectaDB(context, GlobalesApp.BDD, null, GlobalesApp.VERSION).getWritableDatabase();
+            ContentValues registro = new ContentValues();
+            registro.put("estado", "ATENDIDO");
+
+
+            String parametro[] = {"" + id};
+            long ctos=db.update(GlobalesApp.TBL_PEDIDO, registro, "idpedido=?", parametro);
+
+            if (ctos == 0) {
+                mensaje = "cero filas Actualizadas";
+            }
+
+            db.close();
+        }  catch (SQLException ex){
+
+
+
+        }
+        return mensaje;
 
     }
 }

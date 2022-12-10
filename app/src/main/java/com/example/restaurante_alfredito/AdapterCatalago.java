@@ -55,7 +55,7 @@ private int mResourse;
         ImageView imageView=  ( ImageView)convertView.findViewById(R.id.imagen555);
         TextView txtnombr = (TextView )  convertView.findViewById(R.id.t);
         Spinner descrp =  (Spinner  ) convertView.findViewById(R.id.lista_cantidad_productos);
-Button button_detalle  =(Button) convertView.findViewById(R.id.fil_Mas_detalle);
+        Button button_detalle  =(Button) convertView.findViewById(R.id.fil_Mas_detalle);
         Button button_agregar  =(Button) convertView.findViewById(R.id.fil_Mas_agregar);
 
 
@@ -115,7 +115,7 @@ Button button_detalle  =(Button) convertView.findViewById(R.id.fil_Mas_detalle);
             public void onClick(View view) {
                 Productos a =(Productos) Lista_de_comidasFragment.arrayList33.get(position);
 
-Object []op=a.getOpciones();
+                Object []op=a.getOpciones();
 
                 ClienteMenuActivity.arrayList2_CESTA =
                         ClienteMenuActivity.servp.agregarPedido(getContext(),a.getNombre(),op[0].toString());

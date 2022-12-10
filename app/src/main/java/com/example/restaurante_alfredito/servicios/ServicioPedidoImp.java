@@ -128,6 +128,16 @@ public class ServicioPedidoImp implements  ServicioPedido {
         return lista;
     }
 
+    @Override
+    public String ActualizarEstado(Context context, String id) {
+
+        String msg=new DaoPedidosImp().ActualizarEstado(context,id);
+        if (msg==null) {
+            msg="Producto Actualizado";
+        }
+        return msg;
+    }
+
 
 
 }

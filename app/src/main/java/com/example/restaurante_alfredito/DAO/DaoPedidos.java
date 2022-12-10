@@ -15,6 +15,8 @@ public interface DaoPedidos {
 
     public String grabarPedido_detalle(Context context, Pedido res, Detalle_pedido det);
 
+    String ActualizarEstado(Context context, String id);
+
 
 
 }
